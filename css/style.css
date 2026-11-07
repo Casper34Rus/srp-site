@@ -608,3 +608,20 @@ html {
         grid-template-columns: 1fr !important; 
     }
 }
+
+/* === АНИМАЦИИ ПОЯВЛЕНИЯ === */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === УЛУЧШЕНИЯ ДЛЯ МОБИЛЬНЫХ === */
+@media (max-width: 768px) {
+    .section-title { font-size: 26px; }
+    .hero h2 { font-size: 36px; }
+}

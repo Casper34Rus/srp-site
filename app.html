@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Приложение Спорт-Учёт | СРП</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приложение «Спорт-Учёт» | Управление футбольной школой</title>
+    <meta name="description" content="Мобильное приложение для управления детской футбольной школой. Учёт финансов, посещаемости, Летопись матчей. Скачать в RuStore.">
+    <meta name="keywords" content="приложение для тренера, учет футбольной школы, спорт-учет, футбольное приложение, автоматизация спорта">
+    
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        .app-hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e1e1e, #121212); border-radius: 12px; border: 1px solid #333; margin-bottom: 40px; }
-        .app-hero h1 { font-size: 42px; color: var(--accent-color); margin-bottom: 10px; font-weight: 800; }
-        .app-hero h2 { font-size: 20px; color: #fff; margin-bottom: 20px; font-weight: 400; }
-        .app-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
-        
-        /* Стили для тарифов */
+        /* Встроенные стили для надежности, чтобы ничего не сломалось */
         .pricing-container { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -33,80 +33,24 @@
         .pricing-card.premium { 
             border: 2px solid var(--accent-color); 
             box-shadow: 0 0 25px rgba(0, 119, 255, 0.15); 
-            position: relative;
         }
+        .pricing-card h3 { font-size: 22px; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .pricing-card .price { font-size: 48px; font-weight: 800; color: var(--accent-color); margin: 0 0 5px 0; line-height: 1; }
+        .pricing-card .price span { font-size: 16px; color: #888; font-weight: 400; display: block; margin-top: 5px; }
         
-        .pricing-card h3 { 
-            font-size: 22px; 
-            margin-bottom: 15px; 
-            color: #fff; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .pricing-card .list-wrapper { text-align: left; margin: 30px 0; flex-grow: 1; }
+        .pricing-card ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-card ul li { padding: 12px 0; border-bottom: 1px solid #2a2a2a; color: #ccc; font-size: 14px; display: flex; align-items: flex-start; line-height: 1.4; }
+        .pricing-card ul li:last-child { border-bottom: none; }
+        .pricing-card ul li::before { content: '✔'; color: #4ade80; margin-right: 12px; font-weight: bold; flex-shrink: 0; }
+        .pricing-card ul li.disabled { color: #555; text-decoration: line-through; }
+        .pricing-card ul li.disabled::before { content: '✖'; color: #ef4444; }
         
-        .pricing-card .price { 
-            font-size: 48px; 
-            font-weight: 800; 
-            color: var(--accent-color); 
-            margin: 0 0 5px 0; 
-            line-height: 1;
-        }
-        .pricing-card .price span { 
-            font-size: 16px; 
-            color: #888; 
-            font-weight: 400; 
-            display: block;
-            margin-top: 5px;
-        }
-        
-        .pricing-card .list-wrapper {
-            text-align: left;
-            margin: 30px 0;
-            flex-grow: 1; /* Растягивает блок со списком */
-        }
-        
-        .pricing-card ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0;
-        }
-        .pricing-card ul li { 
-            padding: 12px 0; 
-            border-bottom: 1px solid #2a2a2a; 
-            color: #ccc; 
-            font-size: 14px; 
-            display: flex; 
-            align-items: flex-start; 
-            line-height: 1.4;
-        }
-        .pricing-card ul li:last-child {
-            border-bottom: none;
-        }
-        .pricing-card ul li::before { 
-            content: '✔'; 
-            color: #4ade80; 
-            margin-right: 12px; 
-            font-weight: bold; 
-            flex-shrink: 0; 
-        }
-        .pricing-card ul li.disabled { 
-            color: #555; 
-            text-decoration: line-through; 
-        }
-        .pricing-card ul li.disabled::before { 
-            content: '✖'; 
-            color: #ef4444; 
-        }
-        
-        /* Выравнивание кнопок */
-        .pricing-card .btn {
-            width: 100%;
-            padding: 16px 0;
-            font-size: 16px;
-            border-radius: 8px;
-        }
-        
-        .legal-note { font-size: 13px; color: #888; margin-top: 40px; line-height: 1.6; text-align: center; }
+        .pricing-card .btn { width: 100%; padding: 16px 0; font-size: 16px; border-radius: 8px; }
+        .app-hero { text-align: center; padding: 40px 20px; }
+        .app-hero h1 { font-size: 42px; color: var(--accent-color); margin-bottom: 10px; font-weight: 800; }
+        .app-hero h2 { font-size: 20px; color: #fff; margin-bottom: 20px; font-weight: 400; }
+        .app-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -189,7 +133,7 @@
                 </div>
             </div>
 
-            <p class="legal-note">
+            <p class="legal-note" style="text-align: center; margin-top: 30px; font-size: 13px; color: #888;">
                 АНО «Спорт-Ревю Поволжья» является официальным правообладателем приложения.<br>
                 Все вырученные средства направляются на уставные цели: развитие детского спорта.<br>
                 Предоставляются все закрывающие документы для бухгалтерии.
@@ -198,7 +142,10 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div></footer>
+    <footer class="footer">
+        <div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div>
+    </footer>
+
+    <script src="js/animations.js"></script>
 </body>
 </html>
-
