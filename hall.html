@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Зал славы | СРП</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .hall-grid-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .hall-grid-top { grid-template-columns: 1fr; }
+        }
+        
+        .hall-card {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+        }
+        .hall-card h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .hall-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* Стили для рекордов */
+        .record-item {
+            display: flex;
+            flex-direction: column;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+        .record-item:last-child {
+            border-bottom: none;
+        }
+        .record-title {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .record-value {
+            font-weight: 800;
+            font-size: 16px;
+            color: #4ade80; /* Зеленый для победы */
+            line-height: 1.4;
+        }
+        .record-value.lose { color: #ef4444; } /* Красный для поражения */
+        .record-value.draw { color: #fbbf24; } /* Желтый для ничьей */
+
+        /* Стили для вех */
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .timeline li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            border-left: 2px solid #333;
+        }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        .timeline-date {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Стили для соперников (внизу) */
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tag {
+            background-color: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid #444;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип" onerror="this.style.display='none'">
+                <h1>Спорт-Ревю<br>Поволжья</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn active">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html">Приложение</a>
+                <a href="reports.html">Отчёты АНО</a>
+                <a href="contacts.html">Тренеры и Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Зал славы и вехи</h2>
+            
+            <!-- ВЕРХНИЙ БЛОК: РЕКОРДЫ И ВЕХИ -->
+            <div class="hall-grid-top">
+                <!-- Рекорды -->
+                <div class="hall-card">
+                    <h3>🏆 Рекорды клуба</h3>
+                    <div id="records-list">
+                        <p>Загрузка...</p>
+                    </div>
+                </div>
+
+                <!-- Вехи -->
+                <div class="hall-card">
+                    <h3>🚩 Вехи истории</h3>
+                    <ul id="milestones-list" class="timeline"></ul>
+                </div>
+            </div>
+
+            <!-- НИЖНИЙ БЛОК: СОПЕРНИКИ -->
+            <div class="hall-card" style="margin-top: 20px;">
+                <h3>🤝 Наши соперники</h3>
+                <p class="hall-subtitle">Команды, с которыми мы играли</p>
+                <div id="opponents-list" class="tags-list"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div></footer>
+    <script src="js/data.js"></script>
+    <script src="js/hall.js"></script>
+</body>
+</html>

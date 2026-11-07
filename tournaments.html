@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Турниры | СРП</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo"><h1>Спорт-Ревю<br>Поволжья</h1></div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html">Приложение</a>
+                <a href="reports.html">Отчёты АНО</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Наши турниры</h2>
+            <div class="table-container">
+                <table id="tournaments-table">
+                    <thead>
+                        <tr>
+                            <th>Сезон</th>
+                            <th>Турнир</th>
+                            <th>Город</th>
+                            <th>Организатор</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- МОДАЛКА ТУРНИРА -->
+    <div id="tournamentModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTournamentModal()">×</button>
+            <div id="modalTournamentBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div></footer>
+    <script src="js/data.js"></script>
+    <script src="js/tournaments.js"></script>
+</body>
+</html>
+
+
+
+
+

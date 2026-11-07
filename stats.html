@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика | СРП</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo"><h1>Спорт-Ревю<br>Поволжья</h1></div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html">Приложение</a>
+                <a href="reports.html">Отчёты АНО</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Статистика игроков</h2>
+            <p style="text-align:center; color:#a0a0a0; margin-bottom:20px; font-size:14px;">Нажмите на заголовок столбца, чтобы отсортировать</p>
+            
+            <div class="table-container">
+                <table id="stats-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" onclick="sortBy('name')">Игрок ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('games')">Игры ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('goals')">Голы ⚽ ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('assists')">Передачи 🎯 ↕</th>
+                            <th class="sortable" style="text-align:center; color:#fbbf24;" onclick="sortBy('yellow')">ЖК 🟨 ↕</th>
+                            <th class="sortable" style="text-align:center; color:#ef4444;" onclick="sortBy('red')">КК 🟥 ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('total')">Очки (Г+П) ↕</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div></footer>
+    <script src="js/data.js"></script>
+    <script src="js/stats.js"></script>
+</body>
+</html>
+
+
+
+
+
