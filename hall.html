@@ -87,6 +87,65 @@
             .timeline-grid { display: flex; flex-direction: column; gap: 20px; }
             .milestone-box { margin-top: 0 !important; }
         }
+            /* СТИЛИ ДЛЯ РЕКЛАМНОГО БЛОКА */
+        .app-promo-block {
+            background: linear-gradient(135deg, #10182b, #1a253d);
+            border: 2px solid #ffd700;
+            border-radius: 16px;
+            padding: 50px 30px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .app-promo-block::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .app-promo-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .app-promo-block h2 {
+            color: #ffd700;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .app-promo-block h3 {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .app-promo-block p {
+            color: #a0a0a0;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+        .btn-promo {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-promo:hover {
+            background: #ffea00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -159,6 +218,14 @@
                 <div class="tags-list" id="opponents-list"></div>
             </div>
 
+                    <!-- РЕКЛАМНЫЙ БЛОК ПРИЛОЖЕНИЯ -->
+            <div class="app-promo-block">
+                <div class="app-promo-icon">📱</div>
+                <h2>СПОРТ-УЧЁТ</h2>
+                <h3>История клуба всегда под рукой</h3>
+                <p>Сохраняйте результаты матчей, следите за статистикой игроков, ведите историю турниров и создавайте новые достижения вместе со «Спорт-Учёт».</p>
+                <a href="app.html" class="btn-promo">Подробнее о приложении</a>
+            </div>
         </div>
     </section>
 
@@ -170,4 +237,5 @@
     <script src="js/hall.js"></script>
 </body>
 </html>
+
 
