@@ -11,23 +11,26 @@
             return;
         }
 
-        // Подбираем иконку-трофей в зависимости от названия номинации
-        function getTrophyIcon(title) {
-            if (title.includes('бомбардир')) return '👟'; // Золотая бутса
-            if (title.includes('MVP') || title.includes('Игрок')) return '🏆'; // Кубок
-            if (title.includes('воля') || title.includes('характер')) return '🛡️';
-            if (title.includes('прогресс')) return '📈';
-            return '🥇';
+        // Функция подбора картинки под название номинации
+        function getTrophyImage(title) {
+            const t = title.toLowerCase();
+            if (t.includes('бомбардир')) return 'assets/award-boot.jpg';
+            if (t.includes('mvp') || t.includes('игрок')) return 'assets/award-mvp.jpg';
+            if (t.includes('воля') || t.includes('характер')) return 'assets/award-globe.jpg';
+            if (t.includes('прогресс') || t.includes('открытие')) return 'assets/award-wreath.jpg';
+            return 'assets/award-mvp.jpg'; // Картинка по умолчанию
         }
 
         nominations.forEach(n => {
             const desc = n.description ? n.description.replace(/\n/g, '<br>') : '';
-            const icon = getTrophyIcon(n.title.toLowerCase());
+            const imgSrc = getTrophyImage(n.title);
 
             const card = document.createElement("div");
             card.className = "award-card";
             card.innerHTML = `
-                <div class="award-image">${icon}</div>
+                <div class="award-image" style="padding: 0; overflow: hidden;">
+                    <img src="${imgSrc}" alt="${n.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'">
+                </div>
                 <div class="award-content">
                     <div class="award-title">${n.title} (${n.year})</div>
                     <div class="award-subtitle">Номинация сезона</div>

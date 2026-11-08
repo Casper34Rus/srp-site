@@ -915,3 +915,13 @@ th, td {
     justify-content: center;
     align-items: center;
 }
+
+/* === КАРТИНКИ В НОМИНАЦИЯХ === */
+.award-image {
+    height: 220px; /* Высота картинки */
+    background: #000; /* Черный фон, чтобы картинки смотрелись контрастнее */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
