@@ -14,6 +14,7 @@
 
         // --- 1. СОПЕРНИКИ ---
         const oppList = document.getElementById("opponents-list");
+        oppList.innerHTML = "";
         opponents.sort((a,b) => a.name.localeCompare(b.name)).forEach(opp => {
             const span = document.createElement("span");
             span.className = "tag-gold";
@@ -30,33 +31,11 @@
         matches.forEach(m => {
             if (m.technical) return;
             totalGoals += m.ourScore;
-
-            // Первая победа
-            if (!firstWin && m.ourScore > m.theirScore) {
-                firstWin = m;
-            }
-
-            // Самая крупная победа
+            if (!firstWin && m.ourScore > m.theirScore) firstWin = m;
             const diff = m.ourScore - m.theirScore;
-            if (diff > biggestWin.diff) {
-                biggestWin = { 
-                    diff: diff, 
-                    text: `${m.ourScore}:${m.theirScore} против «${m.opponent}»`, 
-                    date: m.date, 
-                    tournament: m.tournament 
-                };
-            }
-
-            // Самый результативный матч
+            if (diff > biggestWin.diff) biggestWin = { diff: diff, text: `${m.ourScore}:${m.theirScore} против «${m.opponent}»`, date: m.date, tournament: m.tournament };
             const matchTotal = m.ourScore + m.theirScore;
-            if (matchTotal > highestScoring.total) {
-                highestScoring = { 
-                    total: matchTotal, 
-                    text: `${m.ourScore}:${m.theirScore} против «${m.opponent}»`, 
-                    date: m.date, 
-                    tournament: m.tournament 
-                };
-            }
+            if (matchTotal > highestScoring.total) highestScoring = { total: matchTotal, text: `${m.ourScore}:${m.theirScore} против «${m.opponent}»`, date: m.date, tournament: m.tournament };
         });
 
         const teamRecordsHtml = `
@@ -68,7 +47,6 @@
                 <div class="record-value">${firstWin.ourScore}:${firstWin.theirScore}</div>
                 <div class="record-context">против «${firstWin.opponent}»<br>${firstWin.date} · ${firstWin.tournament}</div>
             </div>` : ''}
-
             <div class="glass-card">
                 <div class="record-icon">🔥</div>
                 <div class="record-title">Самая крупная победа</div>
@@ -76,7 +54,6 @@
                 <div class="record-value">${biggestWin.text.split(' ')[0]}</div>
                 <div class="record-context">${biggestWin.text.split(' против ')[1]}<br>${biggestWin.date} · ${biggestWin.tournament}</div>
             </div>
-
             <div class="glass-card">
                 <div class="record-icon">⚽</div>
                 <div class="record-title">Самый результативный матч</div>
@@ -84,7 +61,6 @@
                 <div class="record-value">${highestScoring.total} голов</div>
                 <div class="record-context">${highestScoring.text}<br>${highestScoring.date} · ${highestScoring.tournament}</div>
             </div>
-
             <div class="glass-card">
                 <div class="record-icon">🎯</div>
                 <div class="record-title">Всего забито</div>
@@ -109,7 +85,6 @@
         const bestAssist = [...players].sort((a,b) => b.assists - a.assists)[0];
         const ironMan = [...players].sort((a,b) => b.games - a.games)[0];
         
-        // Ищем, в каком матче бомбардир забил больше всего
         let bestScorerMatch = { goals: 0, date: "", tournament: "" };
         if (bestScorer) {
             matches.forEach(m => {
@@ -128,7 +103,6 @@
                 <div class="record-value">${bestScorer.name}</div>
                 <div class="record-context">${bestScorer.goals} голов за карьеру<br>Максимум за матч: ${bestScorerMatch.goals} (${bestScorerMatch.date})</div>
             </div>` : ''}
-
             ${bestAssist ? `
             <div class="glass-card">
                 <div class="record-icon">🎯</div>
@@ -137,7 +111,6 @@
                 <div class="record-value">${bestAssist.name}</div>
                 <div class="record-context">${bestAssist.assists} результативных передач</div>
             </div>` : ''}
-
             ${ironMan ? `
             <div class="glass-card">
                 <div class="record-icon">🛡️</div>
@@ -149,30 +122,39 @@
         `;
         document.getElementById("player-records").innerHTML = playerRecordsHtml;
 
-        // --- 4. ВЕХИ ИСТОРИИ ---
-        let milestones = [];
+        // --- 4. МУЗЕЙНЫЙ ТАЙМЛАЙН (5 ГЛАВНЫХ ВЕХ) ---
+        const milestones = [];
+        
+        // 1. Основание
+        milestones.push({ year: '2025', date: 'Апрель', title: 'Основание команды', desc: 'Начало истории. Первые тренировки, формирование команды и постановка спортивных целей.' });
+
+        // 2. Первый матч
         if (matches.length > 0) {
-            const first = matches[0];
-            milestones.push({ date: first.date, text: `Первый официальный матч против «${first.opponent}». Результат: ${first.ourScore}:${first.theirScore}.` });
-        }
-        milestones.push({ date: '09.10.25', text: 'Официальная регистрация АНО «Спорт-Ревю Поволжья» в Министерстве юстиции.' });
-        if (biggestWin.diff > 0) {
-            milestones.push({ date: biggestWin.date, text: `Историческая победа над «${biggestWin.text.split(' против ')[1].replace(/«|»/g, '')}» со счётом ${biggestWin.text.split(' ')[0]}!` });
+            milestones.push({ year: '2025', date: 'Май', title: 'Первый официальный матч', desc: `Первый игровой опыт против «${matches[0].opponent}». Начало соревновательной истории клуба.` });
         }
 
-        milestones.sort((a, b) => {
-            const dA = a.date.split('.').map(Number); const dB = b.date.split('.').map(Number);
-            return (dB[2] - dA[2]) || (dB[1] - dA[1]) || (dB[0] - dA[0]);
-        });
+        // 3. Первый турнир
+        const firstTournament = matches[0]?.tournament || 'Местный турнир';
+        milestones.push({ year: '2025', date: 'Лето', title: 'Первый турнир', desc: `Выход на новый уровень. Первое участие в организованном соревновании (${firstTournament}).` });
+
+        // 4. Первые награды
+        const nominationsStr = window.BACKUP_DATA.letopis.data.nominations_json_srp_kids;
+        const nominations = nominationsStr ? JSON.parse(nominationsStr) : [];
+        if (nominations.length > 0) {
+            milestones.push({ year: '2025/26', date: 'Конец года', title: 'Первые значимые награды', desc: 'Новые достижения. Победы, призовые места и первые индивидуальные награды игроков.' });
+        }
+
+        // 5. Развитие
+        milestones.push({ year: '2026', date: 'Сегодня', title: 'Развитие клуба', desc: 'Новый этап. Новые команды, спортивные проекты и запуск цифровой системы «Спорт-Учёт».' });
 
         const timeline = document.getElementById("milestones-list");
         timeline.innerHTML = ""; 
-        milestones.forEach(ms => {
+        milestones.forEach((ms, index) => {
             timeline.innerHTML += `
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">${ms.date}</div>
-                <div class="timeline-content">${ms.text}</div>
+            <div class="milestone-box">
+                <div class="milestone-year">${ms.year}</div>
+                <div class="milestone-title">${ms.title}</div>
+                <div class="milestone-desc">${ms.desc}</div>
             </div>`;
         });
 

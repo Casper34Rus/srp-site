@@ -45,24 +45,47 @@
         .record-context { font-size: 12px; color: #ccc; font-style: italic; }
 
         /* СТИЛИ ДЛЯ ВЕХ (ТАЙМЛАЙН) */
-        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: rgba(255, 215, 0, 0.3); transform: translateX(-50%); }
-        .timeline-item { position: relative; margin-bottom: 40px; width: 50%; padding-right: 40px; text-align: right; }
-        .timeline-item:nth-child(even) { left: 50%; padding-right: 0; padding-left: 40px; text-align: left; }
-        .timeline-date { font-size: 16px; font-weight: 800; color: #ffd700; margin-bottom: 5px; }
-        .timeline-content { background: rgba(20, 30, 55, 0.7); padding: 20px; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); font-size: 15px; color: #ddd; }
-        .timeline-dot { position: absolute; top: 0; right: -8px; width: 16px; height: 16px; background: #ffd700; border-radius: 50%; box-shadow: 0 0 10px #ffd700; }
-        .timeline-item:nth-child(even) .timeline-dot { right: auto; left: -8px; }
+        /* МУЗЕЙНЫЙ ТАЙМЛАЙН (ЖЕЛТЫЕ ПЛАШКИ) */
+        .museum-timeline-section { margin: 80px 0; }
+        .museum-timeline-bg {
+            background: linear-gradient(rgba(10, 17, 40, 0.9), rgba(10, 17, 40, 0.95)), url('assets/museum-bg.jpg') center/cover fixed;
+            padding: 80px 0;
+            border-top: 3px solid #ffd700;
+            border-bottom: 3px solid #ffd700;
+        }
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        /* Стили для золотых карточек-плашек */
+        .milestone-box {
+            background: #ffd700;
+            color: #000;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .milestone-box:hover { transform: scale(1.05); z-index: 10; }
+        .milestone-year { font-size: 28px; font-weight: 800; margin-bottom: 5px; line-height: 1; }
+        .milestone-title { font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        .milestone-desc { font-size: 13px; color: #333; line-height: 1.5; }
 
-        /* СОПЕРНИКИ */
-        .tags-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
-        .tag-gold { background: rgba(255, 215, 0, 0.1); border: 1px solid #ffd700; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 14px; }
+        /* Расположение плашек в шахматном порядке (для ПК) */
+        .milestone-box:nth-child(1) { grid-column: 2 / 6; grid-row: 1; }
+        .milestone-box:nth-child(2) { grid-column: 7 / 11; grid-row: 1; margin-top: 40px; }
+        .milestone-box:nth-child(3) { grid-column: 3 / 7; grid-row: 2; margin-top: -20px; }
+        .milestone-box:nth-child(4) { grid-column: 8 / 12; grid-row: 2; margin-top: 20px; }
+        .milestone-box:nth-child(5) { grid-column: 4 / 8; grid-row: 3; margin-top: -10px; }
 
+        /* На мобильных все плашки в один столбец */
         @media (max-width: 768px) {
-            .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; text-align: left; left: 0 !important; }
-            .timeline-dot { left: 12px !important; right: auto !important; }
-            .museum-hero h1 { font-size: 32px; }
+            .timeline-grid { display: flex; flex-direction: column; gap: 20px; }
+            .milestone-box { margin-top: 0 !important; }
         }
     </style>
 </head>
@@ -117,10 +140,16 @@
                 </div>
             </div>
 
-            <!-- ВЕХИ ИСТОРИИ -->
-            <div class="museum-section">
-                <h2 class="gold-title">Вехи истории</h2>
-                <div class="timeline" id="milestones-list"></div>
+            <!-- ВЕХИ ИСТОРИИ (МУЗЕЙНЫЙ ТАЙМЛАЙН) -->
+            <div class="museum-timeline-section">
+                <div class="museum-timeline-bg">
+                    <div class="container">
+                        <h2 class="gold-title" style="text-align: left; margin-bottom: 50px;">История клуба</h2>
+                        <div class="timeline-grid" id="milestones-list">
+                            <!-- Сюда JS вставит плашки -->
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ИСТОРИЯ ВСТРЕЧ -->
@@ -141,3 +170,4 @@
     <script src="js/hall.js"></script>
 </body>
 </html>
+
