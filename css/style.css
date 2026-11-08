@@ -810,3 +810,38 @@ th, td {
     }
     .dropdown-content a { background-color: transparent; border-radius: 0; padding: 12px 16px; text-align: center; }
 }
+
+/* === УМНОЕ МОБИЛЬНОЕ МЕНЮ === */
+/* По умолчанию (на ПК) нижние ссылки скрыты */
+.mobile-bottom-links { display: none; }
+
+@media (max-width: 768px) {
+    /* Скрываем две последние ссылки в шапке на телефонах */
+    .nav-desktop-only { display: none !important; }
+    
+    /* Показываем блок ссылок внизу главной страницы */
+    .mobile-bottom-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 60px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    .mobile-bottom-links a {
+        display: block;
+        background-color: #1a1a1a;
+        color: #fff;
+        text-align: center;
+        padding: 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid #333;
+        font-size: 16px;
+    }
+    .mobile-bottom-links a:active {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+}
