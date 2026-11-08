@@ -938,3 +938,28 @@ th, td {
         object-position: top center !important;
     }
 }
+
+/* ==================================================
+   ЖЕСТКИЙ ФИКС ДЛЯ БЛОКА ТРЕНЕРА И ЕГО ФОТО
+   ================================================== */
+
+/* 1. На компьютерах (ширина > 768px) ПОЛНОСТЬЮ скрываем блок тренера */
+@media (min-width: 769px) {
+    .mobile-only-section,
+    div:has(> img[src="assets/coach.jpg"]) {
+        display: none !important;
+    }
+}
+
+/* 2. На мобильных (ширина <= 768px) показываем блок и ровняем фото по лицу */
+@media (max-width: 768px) {
+    .mobile-only-section,
+    div:has(> img[src="assets/coach.jpg"]) {
+        display: block !important;
+    }
+    img[src="assets/coach.jpg"] {
+        object-fit: cover !important;
+        object-position: top center !important; /* Это поднимет лицо наверх */
+        height: 350px !important; /* Чуть увеличим высоту, чтобы лицо точно влезло */
+    }
+}
