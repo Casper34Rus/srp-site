@@ -596,3 +596,40 @@ body.archive-page .footer {
 
 /* END SPORT REVIEW LETOPIS THEME V1 */
 
+
+/* SRP ARCHIVE V2 */
+body.archive-page .section-title {line-height:1.2;overflow-wrap:anywhere;}
+body.archive-page .matches-list,body.archive-page .awards-grid,body.archive-page .stats-header {min-width:0;}
+body.archive-page .match-card-new,body.archive-page .award-card,body.archive-page .stat-item {
+  border-radius:14px;border-color:rgba(215,180,90,.2);box-shadow:0 12px 28px rgba(0,0,0,.2);
+}
+body.archive-page .match-season-bar {gap:12px;min-width:0;}
+body.archive-page .match-season-bar > span:first-child,
+body.archive-page .team-name,body.archive-page .modal-title,body.archive-page .modal-section {
+  min-width:0;overflow-wrap:anywhere;word-break:normal;
+}
+body.archive-page .score-value {font-variant-numeric:tabular-nums;letter-spacing:-.04em;line-height:1.12;}
+body.archive-page .btn-details {min-height:44px;font-family:inherit;font-weight:700;border-color:rgba(215,180,90,.38);}
+body.archive-page .table-container {
+  display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+}
+body.archive-page .table-container > table {width:max-content;min-width:650px;max-width:none;}
+body.archive-page .table-container th,body.archive-page .table-container td {white-space:nowrap;font-variant-numeric:tabular-nums;}
+body.archive-page .modal-overlay {padding:14px;box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;}
+body.archive-page .modal-content {
+  box-sizing:border-box;width:100%;max-width:720px;max-height:calc(100vh - 28px);
+  overflow-y:auto;overflow-wrap:anywhere;overscroll-behavior:contain;
+}
+@supports(height:100dvh){body.archive-page .modal-content {max-height:calc(100dvh - 28px);}}
+body.archive-page .modal-close {min-width:44px;min-height:44px;border-radius:9px;}
+body.archive-page .app-promo-icon svg {width:38px;height:38px;color:#e7c46d;}
+@media(max-width:768px){
+  body.archive-page .match-main-info,body.archive-page .team-block {min-width:0;}
+  body.archive-page .match-season-bar {flex-wrap:wrap;}
+  body.archive-page .modal-content {padding:22px 15px;}
+}
+@media(prefers-reduced-motion:reduce){
+  body.archive-page .match-card-new,body.archive-page .award-card,body.archive-page .stat-item {transition:none!important;}
+}
+/* END SRP ARCHIVE V2 */
