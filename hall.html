@@ -180,7 +180,160 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-    </style>
+    
+/* ==========================================
+   HALL_RECORD_BACKGROUNDS_V1
+   Фоновые изображения рекордов
+   ========================================== */
+
+.record-grid > .glass-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 265px;
+    padding: 28px 24px;
+    background: #101a30;
+    border: 1px solid rgba(230, 183, 67, 0.48);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Изображение */
+.record-grid > .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--record-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.55s ease;
+}
+
+/* Затемнение для читаемости текста */
+.record-grid > .glass-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        rgba(7, 14, 29, 0.20) 0%,
+        rgba(7, 14, 29, 0.64) 48%,
+        rgba(7, 14, 29, 0.94) 100%
+    );
+    pointer-events: none;
+}
+
+/* При наведении изображение приближается */
+.record-grid > .glass-card:hover::before {
+    transform: scale(1.07);
+}
+
+.record-grid > .glass-card:hover {
+    border-color: #ffd700;
+    box-shadow: 0 14px 35px rgba(255, 215, 0, 0.16);
+    transform: translateY(-5px);
+}
+
+/* Текст располагается поверх изображения */
+.record-grid > .glass-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Убираем старые эмодзи */
+.record-grid > .glass-card .record-icon {
+    display: none !important;
+}
+
+/* Заголовки */
+.record-grid .record-title {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Описания */
+.record-grid .record-desc {
+    color: #e0e6f0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Значения рекордов */
+.record-grid .record-value {
+    color: #ffd700;
+    font-size: 22px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Дополнительная информация */
+.record-grid .record-context {
+    color: #e5e9f0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+/* ==========================================
+   КОМАНДНЫЕ РЕКОРДЫ
+   ========================================== */
+
+#team-records > .glass-card:nth-child(1) {
+    --record-bg: url('assets/hall/01_first_victory_trophy.jpg');
+}
+
+#team-records > .glass-card:nth-child(2) {
+    --record-bg: url('assets/hall/02_biggest_victory_goal_net.jpg');
+}
+
+#team-records > .glass-card:nth-child(3) {
+    --record-bg: url('assets/hall/03_high_scoring_match_ball.jpg');
+}
+
+#team-records > .glass-card:nth-child(4) {
+    --record-bg: url('assets/hall/04_total_goals_target.jpg');
+}
+
+/* ==========================================
+   ИНДИВИДУАЛЬНЫЕ РЕКОРДЫ
+   ========================================== */
+
+#player-records > .glass-card:nth-child(1) {
+    --record-bg: url('assets/hall/05_top_scorer_boot.jpg');
+}
+
+#player-records > .glass-card:nth-child(2) {
+    --record-bg: url('assets/hall/06_best_assist_medal.jpg');
+}
+
+#player-records > .glass-card:nth-child(3) {
+    --record-bg: url('assets/hall/07_iron_man_player.jpg');
+}
+
+/* Адаптация для телефонов */
+@media (max-width: 768px) {
+    .record-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .record-grid > .glass-card {
+        min-height: 225px;
+        padding: 24px 18px;
+    }
+}
+
+/* Учитываем настройки уменьшения анимации */
+@media (prefers-reduced-motion: reduce) {
+    .record-grid > .glass-card,
+    .record-grid > .glass-card::before {
+        transition: none;
+    }
+}
+
+/* END HALL_RECORD_BACKGROUNDS_V1 */
+
+</style>
 </head>
 <body>
     <header class="header">
@@ -291,6 +444,7 @@
     <script src="js/hall.js"></script>
 </body>
 </html>
+
 
 
 
