@@ -106,13 +106,13 @@ window.openMatch = function(match) {
         <div class="modal-section">
             <h4>Голы</h4>
             ${Object.keys(match.goals).length > 0 
-                ? '<ul>' + Object.entries(match.goals).map(([p, g]) => `<li><strong>${p}</strong> — ${g} ⚽</li>`).join('') + '</ul>'
+                ? '<ul>' + Object.entries(match.goals).map(([p, g]) => `<li><strong>${p}</strong> — ${g}</li>`).join('') + '</ul>'
                 : '<p>Нет</p>'}
         </div>
         <div class="modal-section">
             <h4>Голевые передачи</h4>
             ${Object.keys(match.assists).length > 0 
-                ? '<ul>' + Object.entries(match.assists).map(([p, a]) => `<li><strong>${p}</strong> — ${a} 🎯</li>`).join('') + '</ul>'
+                ? '<ul>' + Object.entries(match.assists).map(([p, a]) => `<li><strong>${p}</strong> — ${a}</li>`).join('') + '</ul>'
                 : '<p>Нет</p>'}
         </div>
         ` : ''}
