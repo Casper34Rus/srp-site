@@ -845,3 +845,29 @@ th, td {
         border-color: var(--accent-color);
     }
 }
+
+/* === ФИКС МЕНЮ В ОДНУ СТРОКУ === */
+@media (max-width: 768px) {
+    .nav { 
+        flex-wrap: nowrap !important; /* Запрещаем перенос */
+        justify-content: space-between !important; /* Распределяем по ширине */
+        gap: 5px !important;
+    }
+    .nav a { 
+        font-size: 13px !important; /* Чуть уменьшаем шрифт, чтобы влезло */
+        padding: 6px 8px !important;
+        white-space: nowrap;
+    }
+}
+
+/* === БЛОКИ, КОТОРЫЕ ВИДНЫ ТОЛЬКО НА ТЕЛЕФОНЕ === */
+.mobile-only-section { display: none; }
+
+@media (max-width: 768px) {
+    .mobile-only-section { 
+        display: block; 
+        margin-top: 40px;
+        border-top: 1px dashed #333;
+        padding-top: 40px;
+    }
+}
