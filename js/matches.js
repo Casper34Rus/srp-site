@@ -51,11 +51,7 @@
 
             // Нейтральный логотип для соперника (Серый щит SVG)
             const opponentLogo = `
-                <div class="team-logo" style="background: #2a2a2a;">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                </div>
+                <img src="assets/opponent-logo.jpg" alt="Соперник" class="team-logo-img" style="border: 1px solid #444; background: transparent; padding: 5px;" onerror="this.src='assets/logo.jpg'">
             `;
 
             const card = document.createElement("div");
@@ -129,3 +125,4 @@ window.openMatch = function(match) {
     `;
     modal.classList.add("active");
 }
+
