@@ -55,9 +55,9 @@
     </section>
     
     <!-- МОДАЛКА ТУРНИРА -->
-    <div id="tournamentModal" class="modal-overlay">
+    <div id="tournamentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Информация о турнире">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeTournamentModal()">×</button>
+            <button type="button" aria-label="Закрыть сведения о турнире" class="modal-close" onclick="closeTournamentModal()">×</button>
             <div id="modalTournamentBody"></div>
         </div>
     </div>
@@ -94,5 +94,6 @@ ym(114132098,"init",{
 });
 </script>
 <!-- SRP_INTERNAL_METRIKA_END -->
+    <script src="js/archive-accessibility.js"></script>
 </body>
 </html>
