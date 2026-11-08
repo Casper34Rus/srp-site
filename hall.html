@@ -146,6 +146,40 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
+            /* СТИЛИ ДЛЯ ЭКСПОНАТОВ МУЗЕЯ */
+        .exhibit-frame {
+            background: #000;
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .exhibit-frame:hover {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .exhibit-frame img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            filter: sepia(0.3) contrast(1.1); /* Легкий эффект старины */
+            transition: filter 0.3s;
+        }
+        .exhibit-frame:hover img {
+            filter: sepia(0) contrast(1); /* При наведении фото становится цветным */
+        }
+        .exhibit-caption {
+            text-align: center;
+            color: #ffd700;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -218,7 +252,27 @@
                 <div class="tags-list" id="opponents-list"></div>
             </div>
 
-                    <!-- РЕКЛАМНЫЙ БЛОК ПРИЛОЖЕНИЯ -->
+                                <!-- ФОТОХРОНИКА (ЭКСПОНАТЫ МУЗЕЯ) -->
+            <div class="museum-section">
+                <h2 class="gold-title">Фотохроника клуба</h2>
+                <p style="text-align: center; color: #a0a0a0; margin-bottom: 30px;">Моменты, которые навсегда вошли в историю «Спорт-Ревю Поволжья»</p>
+                <div class="photo-gallery" style="margin-bottom: 60px;">
+                    <div class="exhibit-frame">
+                        <img src="assets/team.jpg" alt="Команда Спорт-Ревю Поволжья">
+                        <div class="exhibit-caption">Наш коллектив</div>
+                    </div>
+                    <div class="exhibit-frame">
+                        <img src="assets/team2.jpg" alt="Тренировочный процесс">
+                        <div class="exhibit-caption">На тренировке</div>
+                    </div>
+                    <div class="exhibit-frame">
+                        <img src="assets/team3.jpg" alt="Матч команды">
+                        <div class="exhibit-caption">В игре</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- РЕКЛАМНЫЙ БЛОК ПРИЛОЖЕНИЯ -->
             <div class="app-promo-block">
                 <div class="app-promo-icon">📱</div>
                 <h2>СПОРТ-УЧЁТ</h2>
@@ -237,5 +291,6 @@
     <script src="js/hall.js"></script>
 </body>
 </html>
+
 
 
