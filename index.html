@@ -268,6 +268,71 @@
 <a class="srp-mobile-cta" href="#join">
     Записать ребёнка на тренировку
 </a>
+<!-- SRP_METRIKA_GOALS_START -->
+<script>
+(function () {
+    "use strict";
+
+    var counterId = 114132098;
+
+    function sendGoal(goal) {
+        if (typeof window.ym !== "function") {
+            console.warn("SRP Metrika unavailable:", goal);
+            return;
+        }
+
+        window.ym(counterId, "reachGoal", goal);
+    }
+
+    // Отслеживаем нажатия на ссылки
+    document.addEventListener("click", function (event) {
+        var target = event.target;
+
+        if (!target || !target.closest) return;
+
+        var link = target.closest("a[href]");
+        if (!link) return;
+
+        var href = link.getAttribute("href") || "";
+
+        // Кнопка записи на тренировку
+        if (href === "#join") {
+            sendGoal("srp_trial_click");
+            return;
+        }
+
+        // Нажатие на телефон
+        if (href.toLowerCase().startsWith("tel:")) {
+            sendGoal("srp_phone_click");
+            return;
+        }
+
+        // Переход в ВКонтакте из блока записи
+        if (
+            href.indexOf("vk.com/srpkids") !== -1 &&
+            link.closest("#join")
+        ) {
+            sendGoal("srp_vk_click");
+        }
+    });
+
+    // Попытка отправки формы записи
+    document.addEventListener("submit", function (event) {
+        var form = event.target;
+
+        if (!form || !form.matches) return;
+
+        if (
+            form.matches('#join form[action^="mailto:"]')
+        ) {
+            sendGoal("srp_form_submit");
+        }
+
+        // Не отменяем стандартную отправку формы
+    });
+})();
+</script>
+<!-- SRP_METRIKA_GOALS_END -->
 </body>
 </html>
 
