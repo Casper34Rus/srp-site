@@ -79,3 +79,10 @@
     padding: 9px 10px !important;
   }
 }
+
+/* Home page: coach feature is mobile-only; hide the whole card on desktop. */
+@media (min-width: 769px) {
+  body.srp-premium-page .coach-feature-section {
+    display: none !important;
+  }
+}
