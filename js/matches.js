@@ -46,9 +46,17 @@
             else if (match.ourScore < match.theirScore) resultBadge = '<span class="score-badge lose">Поражение</span>';
             else resultBadge = '<span class="score-badge draw">Ничья</span>';
 
-            // Определяем сезон (очень примерно по году)
             const year = match.date.split('.')[2];
             const season = year === '26' ? 'Сезон 2025/26' : 'Сезон 2024/25';
+
+            // Нейтральный логотип для соперника (Серый щит SVG)
+            const opponentLogo = `
+                <div class="team-logo" style="background: #2a2a2a;">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+            `;
 
             const card = document.createElement("div");
             card.className = "match-card-new";
@@ -59,15 +67,16 @@
                 </div>
                 <div class="match-main-info">
                     <div class="team-block">
-                        <div class="team-logo" style="background: #0077FF; color: #fff; font-weight: bold;">СРП</div>
-                        <div class="team-name">Спорт-Ревю</div>
+                        <!-- Наш логотип из папки assets -->
+                        <img src="assets/logo.jpg" alt="Спорт-Ревю" class="team-logo-img" onerror="this.style.display='none'">
+                        <div class="team-name">Спорт-Ревю Поволжья</div>
                     </div>
                     <div class="score-block">
                         <div class="score-value">${match.ourScore} : ${match.theirScore}</div>
                         ${resultBadge}
                     </div>
                     <div class="team-block">
-                        <div class="team-logo">🛡️</div>
+                        ${opponentLogo}
                         <div class="team-name">${match.opponent}</div>
                     </div>
                 </div>

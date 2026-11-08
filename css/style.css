@@ -899,3 +899,19 @@ th, td {
         display: block;
     }
 }
+
+/* === ЛОГОТИПЫ В КАРТОЧКАХ МАТЧЕЙ === */
+.team-logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+    background-color: #fff; /* Чтобы логотип с прозрачным фоном было видно */
+}
+
+.team-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
