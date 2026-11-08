@@ -1,19 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Летопись матчей | Спорт-Ревю Поволжья</title>
+    <title>Летопись Спорт-Ревю Поволжья</title>
+    <meta name="description" content="История команды. Большие матчи. Маленькие и большие победы. Люди, которые создают клуб.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для цифр-показателей */
+        .stats-header { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .stat-item { background: #1a1a1a; padding: 30px; border-radius: 12px; border-left: 4px solid var(--accent-color); }
+        .stat-value { font-size: 48px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 5px; }
+        .stat-label { font-size: 14px; color: #a0a0a0; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Стили для карточек матчей */
+        .matches-list { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
+        .match-card-new { background: #1a1a1a; border-radius: 12px; border: 1px solid #333; overflow: hidden; display: flex; flex-direction: column; }
+        .match-season-bar { background: #121212; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #a0a0a0; border-bottom: 1px solid #333; }
+        .badge-finished { background: #1e3c72; color: #4ade80; padding: 4px 10px; border-radius: 20px; font-weight: bold; font-size: 12px; }
+        
+        .match-main-info { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 30px 20px; gap: 20px; }
+        .team-block { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+        .team-logo { width: 60px; height: 60px; background: #222; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; }
+        .team-name { font-weight: 600; color: #fff; font-size: 16px; }
+        
+        .score-block { text-align: center; }
+        .score-value { font-size: 36px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 5px; }
+        .score-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .score-badge.win { background: rgba(74, 222, 128, 0.1); color: #4ade80; }
+        .score-badge.lose { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .score-badge.draw { background: rgba(251, 191, 36, 0.1); color: #fbbf24; }
+        
+        .match-footer-new { padding: 15px 20px; border-top: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+        .btn-details { background: transparent; border: 1px solid #444; color: #fff; padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-size: 14px; }
+        .btn-details:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+        @media (max-width: 768px) {
+            .stats-header { grid-template-columns: 1fr; gap: 15px; }
+            .match-main-info { grid-template-columns: 1fr; text-align: center; }
+            .match-footer-new { flex-direction: column; gap: 15px; }
+            .btn-details { width: 100%; }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container header-content">
-            <div class="logo"><h1>Спорт-Ревю<br>Поволжья</h1></div>
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип" onerror="this.style.display='none'">
+                <h1>Спорт-Ревю<br>Поволжья</h1>
+            </div>
             <nav class="nav">
-                <a href="index.html" >Главная</a>
+                <a href="index.html">Главная</a>
                 <div class="dropdown">
                     <a href="matches.html" class="dropbtn active">Летопись ▾</a>
                     <div class="dropdown-content">
@@ -24,17 +62,40 @@
                         <a href="hall.html">Зал славы</a>
                     </div>
                 </div>
-                <a href="app.html" >Приложение</a>
-                <a href="contacts.html" class="nav-desktop-only" >Тренеры и Адреса</a>
-                <a href="reports.html" class="nav-desktop-only" >Отчёты АНО</a>
+                <a href="app.html">Приложение</a>
+                <a href="contacts.html" class="nav-desktop-only">Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only">Отчёты АНО</a>
             </nav>
         </div>
     </header>
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Летопись матчей</h2>
-            <div id="matches-list" class="matches-grid">
+            <h1 class="section-title" style="text-align: left; margin-bottom: 10px;">Летопись Спорт-Ревю Поволжья</h1>
+            <p style="color: #a0a0a0; font-style: italic; font-size: 16px; margin-bottom: 30px;">История команды. Большие матчи. Маленькие и большие победы. Люди, которые создают клуб.</p>
+
+            <!-- БЛОК С ЦИФРАМИ -->
+            <div class="stats-header">
+                <div class="stat-item">
+                    <div class="stat-value" id="metric-matches">0</div>
+                    <div class="stat-label">Сыгранных матчей</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="metric-wins">0</div>
+                    <div class="stat-label">Побед</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="metric-tournaments">0</div>
+                    <div class="stat-label">Турниров</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="metric-goals">0</div>
+                    <div class="stat-label">Забитых голов</div>
+                </div>
+            </div>
+
+            <!-- СПИСОК МАТЧЕЙ -->
+            <div class="matches-list" id="matches-container">
                 <p>Загрузка матчей...</p>
             </div>
         </div>
@@ -43,27 +104,13 @@
     <!-- МОДАЛЬНОЕ ОКНО МАТЧА -->
     <div id="matchModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
+            <button class="modal-close" onclick="document.getElementById('matchModal').classList.remove('active')">×</button>
             <div id="modalMatchBody"></div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602 | ОГРН 1253400008619</p></div>
-    </footer>
-
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div></footer>
     <script src="js/data.js"></script>
     <script src="js/matches.js"></script>
-<script src="js/animations.js"></script>\n</body>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
