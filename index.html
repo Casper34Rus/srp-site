@@ -31,8 +31,9 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site-premium-theme.css?v=2.0">
 </head>
-<body>
+<body class="srp-premium-page">
     <!-- Яндекс.Метрика (Вставь свой номер счетчика вместо XXXXXXXX) -->
     <!--
     <script type="text/javascript">
@@ -83,7 +84,7 @@
             </p>
             <div class="hero-buttons" style="margin-top:40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="#join" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; box-shadow: 0 5px 15px rgba(0,119,255,0.4);">Записать ребёнка на пробную тренировку</a>
-                <a href="#faq" class="btn btn-outline" style="padding: 18px 40px; font-size: 18px; border-width: 2px;">Посмотреть расписание и адреса</a>
+                <a href="#locations" class="btn btn-outline" style="padding: 18px 40px; font-size: 18px; border-width: 2px;">Посмотреть расписание и адреса</a>
             </div>
         </div>
     </section>
@@ -110,7 +111,7 @@
             </div>
             
             <!-- Ссылки на районы (для SEO) -->
-            <div style="text-align: center; margin-top: 40px; margin-bottom: 40px; background: #1a1a1a; padding: 20px; border-radius: 12px;">
+            <div id="locations" class="locations-callout" style="text-align: center; margin-top: 40px; margin-bottom: 40px; background: #1a1a1a; padding: 20px; border-radius: 12px;">
                 <h3 style="color: #fff; margin-bottom: 15px; font-size: 18px;">Выберите удобный район для тренировок:</h3>
                 <a href="football-voroshilovskiy.html" class="btn btn-outline" style="margin: 5px;">Ворошиловский район</a>
                 <a href="football-centralny.html" class="btn btn-outline" style="margin: 5px;">Центральный район</a>
@@ -238,7 +239,7 @@
             </div>
 
             <!-- Мобильные блоки -->
-            <div class="mobile-only-section">
+            <div class="coach-feature-section">
                 <h2 class="section-title">Наш тренер</h2>
                 <div style="background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #333; margin-bottom: 40px;">
                     <img src="assets/coach.jpg" alt="Главный тренер Александр Демьянченков" style="width: 100%; height: 300px; object-fit: cover;">
@@ -265,6 +266,8 @@
         <div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div>
     </footer>
     <script src="js/animations.js"></script>
+<a class="srp-mobile-cta" href="#join">
+    Записать ребёнка на тренировку
+</a>
 </body>
 </html>
-
