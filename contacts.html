@@ -1,9 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta charset="UTF-8">
-    <title>Тренеры и контакты | Детский футбол в Волгограде</title>
+    <title>Тренеры, адреса и контакты | СРП</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -16,16 +15,25 @@
         .coach-role { font-size: 14px; color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
         .coach-desc { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
         
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .contact-card { background-color: var(--secondary-color); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent-color); }
-        .contact-card h3 { margin-bottom: 10px; font-size: 18px; color: #fff; }
-        .contact-card p, .contact-card a { color: var(--text-muted); font-size: 15px; text-decoration: none; }
-        .contact-card a:hover { color: var(--accent-color); }
+        .info-card { background: #1a1a1a; padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent-color); margin-bottom: 20px; }
+        .info-card h3 { color: #fff; font-size: 20px; margin-bottom: 15px; }
+        .info-card p { color: #a0a0a0; font-size: 15px; line-height: 1.6; margin-bottom: 10px; }
+        .info-card ul { color: #ccc; font-size: 15px; line-height: 1.6; padding-left: 20px; margin-bottom: 10px; }
+        .info-card li { margin-bottom: 5px; }
 
-        .reqs { background-color: var(--secondary-color); padding: 30px; border-radius: 12px; margin-top: 40px; border-left: 4px solid var(--accent-color); }
-        .reqs h3 { margin-bottom: 20px; color: #fff; }
-        .reqs p { margin-bottom: 10px; font-size: 15px; color: #ccc; }
-        .reqs strong { color: var(--text-muted); display: inline-block; width: 120px; }
+        .address-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; margin-bottom: 40px; }
+        .address-card { background: var(--secondary-color); padding: 25px; border-radius: 12px; border-top: 4px solid var(--accent-color); text-align: center; }
+        .address-card h4 { color: #fff; font-size: 18px; margin-bottom: 10px; }
+        .address-card p { color: #ccc; font-size: 15px; margin-bottom: 5px; }
+
+        .reqs { background-color: #151515; padding: 30px; border-radius: 12px; margin-top: 40px; border: 1px dashed #333; }
+        .reqs h3 { margin-bottom: 20px; color: #fff; font-size: 18px; }
+        .reqs p { margin-bottom: 10px; font-size: 14px; color: #888; }
+        .reqs strong { color: #ccc; display: inline-block; width: 120px; }
+
+        @media (max-width: 768px) {
+            .address-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -36,7 +44,7 @@
                 <h1>Спорт-Ревю<br>Поволжья</h1>
             </div>
             <nav class="nav">
-                <a href="index.html" >Главная</a>
+                <a href="index.html">Главная</a>
                 <div class="dropdown">
                     <a href="matches.html" class="dropbtn">Летопись ▾</a>
                     <div class="dropdown-content">
@@ -47,17 +55,18 @@
                         <a href="hall.html">Зал славы</a>
                     </div>
                 </div>
-                <a href="app.html" >Приложение</a>
-                <a href="contacts.html" class="nav-desktop-only" class="active">Тренеры и Контакты</a>
-                <a href="reports.html" class="nav-desktop-only" >Отчёты АНО</a>
+                <a href="app.html">Приложение</a>
+                <a href="contacts.html" class="active nav-desktop-only">Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only">Отчёты АНО</a>
             </nav>
         </div>
     </header>
 
     <section class="section">
         <div class="container">
-            <!-- БЛОК ТРЕНЕРОВ -->
+            <!-- БЛОК ТРЕНЕРА -->
             <h2 class="section-title">Наш тренерский штаб</h2>
+            
             <div class="coach-grid">
                 <div class="coach-card">
                     <div class="coach-photo">
@@ -65,17 +74,25 @@
                     </div>
                     <div class="coach-info">
                         <div class="coach-name">Демьянченков Александр Александрович</div>
-                        <div class="coach-role">ГЕНЕРАЛЬНЫЙ ДИРЕКТОР АНО / ГЛАВНЫЙ ТРЕНЕР</div>
+                        <div class="coach-role">Генеральный директор АНО / Главный тренер</div>
                         <div class="coach-desc">
-                            Основатель футбольной школы <span style="white-space: nowrap;">«Спорт-Ревю Поволжья»</span>. Отвечает за стратегическое развитие клуба, тренировочный процесс и участие команды в турнирах.
+                            Основатель футбольной школы «Спорт-Ревю Поволжья». Отвечает за стратегическое развитие клуба, тренировочный процесс и участие команды в турнирах.
                             <ul style="margin-top: 15px; list-style: none; padding: 0;">
-                                <li style="margin-bottom: 8px; display: flex; align-items: center;">
+                                <li style="margin-bottom: 8px; display: flex; align-items: flex-start;">
                                     <span style="color: var(--accent-color); margin-right: 10px;">✔</span>
-                                    <strong>Опыт работы:</strong>&nbsp;5 лет
+                                    <span><strong>Опыт работы:</strong> 5 лет</span>
                                 </li>
-                                <li style="margin-bottom: 8px; display: flex; align-items: center;">
+                                <li style="margin-bottom: 8px; display: flex; align-items: flex-start;">
                                     <span style="color: var(--accent-color); margin-right: 10px;">✔</span>
-                                    <strong>Лицензия:</strong>&nbsp;С UEFA
+                                    <span><strong>Лицензия:</strong> С UEFA</span>
+                                </li>
+                                <li style="margin-bottom: 8px; display: flex; align-items: flex-start;">
+                                    <span style="color: var(--accent-color); margin-right: 10px;">✔</span>
+                                    <span><strong>Направления:</strong> техника, игровое мышление, командная работа</span>
+                                </li>
+                                <li style="margin-bottom: 8px; display: flex; align-items: flex-start;">
+                                    <span style="color: var(--accent-color); margin-right: 10px;">✔</span>
+                                    <span><strong>Группы:</strong> дети от 5 до 14 лет</span>
                                 </li>
                             </ul>
                         </div>
@@ -83,59 +100,53 @@
                 </div>
             </div>
 
-            <!-- БЛОК КОНТАКТОВ -->
-            <h2 class="section-title" style="margin-top: 60px;">Контакты</h2>
+            <!-- КАК ПРОХОДИТ ПЕРВОЕ ЗАНЯТИЕ -->
+            <h2 class="section-title" style="margin-top: 60px;">Как проходит первое занятие</h2>
+            <div class="info-card">
+                <p><strong>Ребёнку не нужно уметь играть в футбол, чтобы прийти на первую тренировку!</strong> Мы принимаем всех новичков.</p>
+                <p>Первое занятие проходит в игровой форме. Тренер знакомится с ребёнком, показывает базовые упражнения с мячом и мягко вводит его в коллектив. Главная задача — чтобы ребёнок ушёл с тренировки с улыбкой и желанием вернуться.</p>
+            </div>
+
+            <!-- АДРЕСА ТРЕНИРОВОК -->
+            <h2 class="section-title" style="margin-top: 60px;">Адреса тренировок</h2>
+            <p style="text-align: center; color: #a0a0a0; margin-bottom: 20px;">Мы тренируемся в двух районах города. Точное место и время вам подскажет тренер при записи.</p>
             
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>📞 Телефон</h3>
-                    <p><a href="tel:+79375357501">+7 (937) 535-75-01</a></p>
+            <div class="address-grid">
+                <div class="address-card">
+                    <h4>Ворошиловский район</h4>
+                    <p style="color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">ул. Циолковского, 33А</p>
+                    <p style="color: var(--accent-color); font-size: 14px; font-weight: bold; margin-bottom: 10px;">Летний период (открытое поле)</p>
+                    <p style="font-size: 13px; color: #888;">Удобный подъезд</p>
                 </div>
-                <div class="contact-card">
-                    <h3>✉️ Email</h3>
-                    <p><a href="mailto:ANO-SRP@yandex.ru">ANO-SRP@yandex.ru</a></p>
-                </div>
-                <div class="contact-card">
-                    <h3>🌐 Соцсети</h3>
-                    <p><a href="https://vk.com/srpkids" target="_blank">vk.com/srpkids</a></p>
-                </div>
-            </div>
-
-            <div style="background-color: var(--secondary-color); padding: 40px; border-radius: 12px; text-align: center; margin-bottom: 40px; margin-top: 40px;">
-                <h3 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Свяжитесь с нами прямо сейчас</h3>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="tel:+79375357501" class="btn btn-primary" style="padding: 20px 40px; font-size: 18px;">📞 Позвонить</a>
-                    <a href="https://vk.com/srpkids" target="_blank" class="btn btn-outline" style="padding: 20px 40px; font-size: 18px; border-color: #0077FF; color: #0077FF;">💬 Написать в ВК</a>
+                <div class="address-card">
+                    <h4>Центральный район</h4>
+                    <p style="color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">пр. Ленина, 78 (ВГАФК)</p>
+                    <p style="color: var(--accent-color); font-size: 14px; font-weight: bold; margin-bottom: 10px;">Зимний период (зал)</p>
+                    <p style="font-size: 13px; color: #888;">Удобный подъезд</p>
                 </div>
             </div>
 
+            <!-- КОНТАКТЫ И КНОПКА ЗАПИСИ -->
+            <h2 class="section-title" style="margin-top: 60px;">Связаться с нами</h2>
+            <div class="info-card" style="text-align: center; border-left: none; border-top: 4px solid var(--accent-color);">
+                <p style="font-size: 20px; color: #fff; margin-bottom: 15px;">📞 <a href="tel:+79375357501" style="color: #fff; text-decoration: none;">+7 (937) 535-75-01</a></p>
+                <p style="font-size: 20px; color: #fff; margin-bottom: 20px;">✉️ <a href="mailto:ANO-SRP@yandex.ru" style="color: #fff; text-decoration: none;">ANO-SRP@yandex.ru</a></p>
+                
+                <a href="index.html#join" class="btn btn-primary" style="padding: 15px 40px; font-size: 18px; display: inline-block;">Записаться на тренировку</a>
+            </div>
+
+            <!-- РЕКВИЗИТЫ АНО (В САМОМ НИЗУ) -->
             <div class="reqs">
-                <h3>Официальные реквизиты</h3>
+                <h3>Официальные реквизиты организации</h3>
                 <p><strong>Полное имя:</strong> Автономная некоммерческая организация по развитию спорта «Спорт-Ревю Поволжья»</p>
-                <p><strong>ИНН:</strong> 3460088602</p>
-                <p><strong>КПП:</strong> 346001001</p>
-                <p><strong>ОГРН:</strong> 1253400008619</p>
-                <p><strong>Юр. адрес:</strong> 400120, Волгоградская область, г. Волгоград, ул. Котлубанская, д. 103</p>
+                <p><strong>ИНН:</strong> 3460088602 | <strong>КПП:</strong> 346001001 | <strong>ОГРН:</strong> 1253400008619</p>
+                <p><strong>Юридический адрес:</strong> 400120, Волгоградская область, г. Волгоград, ул. Котлубанская, д. 103</p>
             </div>
         </div>
     </section>
 
     <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div></footer>
-<script src="js/animations.js"></script>\n</body>
+    <script src="js/animations.js"></script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
