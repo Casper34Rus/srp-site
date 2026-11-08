@@ -33,7 +33,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site-premium-theme.css?v=2.0">
     <link rel="canonical" href="https://srp-vlg.ru/">
-    <link rel="stylesheet" href="css/srp-mobile-fixes.css?v=1">
+    <link rel="stylesheet" href="css/srp-mobile-fixes.css?v=2">
+    <style>
+      /* Keep the coach feature on phones only, independent of CSS cache. */
+      @media (min-width: 769px) {
+        body.srp-premium-page .coach-feature-section {
+          display: none !important;
+        }
+      }
+    </style>
 </head>
 <body class="srp-premium-page">
     <!-- Яндекс.Метрика: официальный сайт srp-vlg.ru -->
