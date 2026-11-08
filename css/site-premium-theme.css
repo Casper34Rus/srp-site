@@ -621,7 +621,7 @@ body.srp-premium-page .locations-callout h3 {
 
 body.srp-premium-page:not(.archive-page) .coach-feature-section {
 
-    display: block !important;
+    /* Visibility is controlled by the mobile-only rules below. */
 
     margin-top: 65px !important;
 
@@ -1374,3 +1374,15 @@ body.srp-premium-page .footer p {
 /* ============================================================
    END SPORT REVIEW PREMIUM DESIGN SYSTEM V2
    ============================================================ */
+
+/* Coach card belongs only to the mobile homepage. */
+@media (min-width: 769px) {
+    body.srp-premium-page:not(.archive-page) .coach-feature-section {
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+    body.srp-premium-page:not(.archive-page) .coach-feature-section {
+        display: block !important;
+    }
+}
