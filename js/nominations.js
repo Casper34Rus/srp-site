@@ -14,10 +14,15 @@
         // Функция подбора картинки под название номинации
         function getTrophyImage(title) {
             const t = title.toLowerCase();
+            // Жесткое распределение наших 4 картинок
+            if (t.includes('mvp')) return 'assets/award-mvp.jpg'; // Золотой мяч на подставке
+            if (t.includes('воля')) return 'assets/award-globe.jpg'; // Мяч на ножках
+            if (t.includes('прогресс')) return 'assets/award-boot.jpg'; // Золотая бутса
+            if (t.includes('открытие')) return 'assets/award-wreath.jpg'; // Лавровый венок
+            
+            // Если появится номинация "Бомбардир", дадим ей бутсу
             if (t.includes('бомбардир')) return 'assets/award-boot.jpg';
-            if (t.includes('mvp') || t.includes('игрок')) return 'assets/award-mvp.jpg';
-            if (t.includes('воля') || t.includes('характер')) return 'assets/award-globe.jpg';
-            if (t.includes('прогресс') || t.includes('открытие')) return 'assets/award-wreath.jpg';
+
             return 'assets/award-mvp.jpg'; // Картинка по умолчанию
         }
 
@@ -44,3 +49,4 @@
         container.innerHTML = `<p>Ошибка: ${e.message}</p>`;
     }
 });
+
