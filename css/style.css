@@ -963,3 +963,10 @@ th, td {
         height: 350px !important; /* Чуть увеличим высоту, чтобы лицо точно влезло */
     }
 }
+
+/* === СКРЫВАЕМ ЗАГОЛОВОК ТРЕНЕРА НА ПК === */
+@media (min-width: 769px) {
+    .mobile-only-title {
+        display: none !important;
+    }
+}
