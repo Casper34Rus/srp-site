@@ -699,3 +699,50 @@ th, td {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* === ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНЫХ (телефоны и планшеты) === */
+@media (max-width: 768px) {
+    /* 1. Исправляем шапку: делаем меню горизонтально прокручиваемым */
+    .header-content { flex-direction: column; gap: 15px; padding-bottom: 10px; }
+    .nav { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        width: 100%; 
+        justify-content: flex-start; 
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+    }
+    .nav::-webkit-scrollbar { display: none; } /* Скрываем полосу прокрутки */
+    .nav a { margin-left: 0; margin-right: 15px; white-space: nowrap; font-size: 15px; }
+
+    /* 2. Исправляем главный баннер (чтобы текст не вылезал) */
+    .hero { padding: 80px 15px !important; }
+    .hero h2 { font-size: 32px !important; line-height: 1.2 !important; word-wrap: break-word; }
+    .hero-subtitle { font-size: 16px !important; }
+    .hero-info { font-size: 15px !important; }
+    .hero-buttons { flex-direction: column; gap: 15px; }
+    .hero-buttons .btn { width: 100%; padding: 15px !important; font-size: 16px !important; }
+
+    /* 3. Уменьшаем верхнюю синюю плашку набора */
+    div[style*="text-transform: uppercase"] { font-size: 12px !important; padding: 10px 5px !important; line-height: 1.4; }
+
+    /* 4. Исправляем таблицы (Статистика, Турниры) - добавляем горизонтальный скролл */
+    .table-container { 
+        width: 100%; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch;
+        display: block;
+    }
+    table { min-width: 600px; } /* Таблица не сжимается, а скроллится пальцем */
+
+    /* 5. Отключаем тяжелые анимации на телефонах (фикс тормозов) */
+    .fade-in-element { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+    /* 6. Сетки (Преимущества, Отзывы, Тарифы) в одну колонку */
+    .pricing-container, .info-grid, .hall-grid-top, .news-grid { grid-template-columns: 1fr !important; }
+    div[style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+    
+    /* 7. Виджет ВК чтобы не вылезал */
+    #vk_groups { max-width: 100%; overflow: hidden; }
+}
