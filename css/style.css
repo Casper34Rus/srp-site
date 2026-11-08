@@ -746,3 +746,35 @@ th, td {
     /* 7. Виджет ВК чтобы не вылезал */
     #vk_groups { max-width: 100%; overflow: hidden; }
 }
+
+/* === ИСПРАВЛЕНИЕ МОБИЛЬНОГО МЕНЮ (ВСЕ ВИДНО БЕЗ ПРОКРУТКИ) === */
+@media (max-width: 768px) {
+    .header-content { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding-bottom: 15px; 
+    }
+    .nav { 
+        display: flex; 
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+        justify-content: center; /* Центрируем кнопки */
+        width: 100%; 
+        gap: 10px; /* Отступы между кнопками */
+        overflow-x: visible; /* Отключаем горизонтальный скролл */
+    }
+    .nav a { 
+        margin: 0; 
+        padding: 6px 10px; 
+        font-size: 14px; 
+        white-space: normal; 
+        background-color: #1a1a1a; /* Добавляем легкий фон для красоты */
+        border-radius: 6px;
+    }
+    .dropdown { display: inline-block; }
+    .dropdown-content {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 140px;
+    }
+}
