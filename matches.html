@@ -107,9 +107,9 @@
     </section>
 
     <!-- МОДАЛЬНОЕ ОКНО МАТЧА -->
-    <div id="matchModal" class="modal-overlay">
+    <div id="matchModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Протокол матча">
         <div class="modal-content">
-            <button class="modal-close" onclick="document.getElementById('matchModal').classList.remove('active')">×</button>
+            <button type="button" aria-label="Закрыть протокол" class="modal-close" onclick="document.getElementById('matchModal').classList.remove('active')">×</button>
             <div id="modalMatchBody"></div>
         </div>
     </div>
@@ -146,5 +146,6 @@ ym(114132098,"init",{
 });
 </script>
 <!-- SRP_INTERNAL_METRIKA_END -->
+    <script src="js/archive-accessibility.js"></script>
 </body>
 </html>
