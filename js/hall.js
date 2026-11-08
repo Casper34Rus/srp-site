@@ -6,16 +6,17 @@
         const matches = JSON.parse(matchesStr);
         const opponents = JSON.parse(opponentsStr);
 
-        // --- 1. СОПЕРНИКИ ---
+        // --- 1. СОПЕРНИКИ (ИСТОРИЯ ВСТРЕЧ) ---
         const oppList = document.getElementById("opponents-list");
+        oppList.innerHTML = "";
         opponents.sort((a,b) => a.name.localeCompare(b.name)).forEach(opp => {
             const span = document.createElement("span");
-            span.className = "tag";
+            span.className = "tag-gold";
             span.innerText = opp.name;
             oppList.appendChild(span);
         });
 
-        // --- 2. РЕКОРДЫ ИГРОКОВ (УМНЫЙ ФИЛЬТР) ---
+        // --- 2. РЕКОРДЫ ИГРОКОВ ---
         const stats = {}; 
         const keepers = {}; 
 
@@ -25,7 +26,6 @@
 
         matches.forEach(m => {
             if (m.technical) return;
-
             if (m.lineup && Array.isArray(m.lineup)) {
                 m.lineup.forEach(p => { ensurePlayer(p); stats[p].games++; });
             }
@@ -59,25 +59,25 @@
         const recordsToShow = [];
         const mentionedCount = {}; 
 
-        function addRecord(title, playerName, valueText, styleClass = "") {
+        function addRecord(title, playerName, valueText) {
             if ((mentionedCount[playerName] || 0) >= 2) return false;
-            recordsToShow.push({ title, name: playerName, value: valueText, style: styleClass });
+            recordsToShow.push({ title, name: playerName, value: valueText });
             mentionedCount[playerName] = (mentionedCount[playerName] || 0) + 1;
             return true;
         }
 
         for (let p of sortedByGoals) {
-            if (addRecord("Лучший бомбардир", p.name, `${p.goals} голов`, "record-value")) break;
+            if (addRecord("Лучший бомбардир", p.name, `${p.goals} голов`)) break;
         }
         for (let p of sortedByAssists) {
-            if (addRecord("Лучший ассистент", p.name, `${p.assists} передач`, "record-value draw")) break;
+            if (addRecord("Лучший ассистент", p.name, `${p.assists} передач`)) break;
         }
         for (let p of sortedByGames) {
-            if (addRecord("Железный человек (больше всех игр)", p.name, `${p.games} матчей`, "record-value")) break;
+            if (addRecord("Железный человек", p.name, `${p.games} матчей`)) break;
         }
         if (sortedKeepers.length > 0) {
             for (let k of sortedKeepers) {
-                if (addRecord("Стена (больше всех сухих матчей)", k.name, `${k.dryGames} сухих игр`, "record-value")) break;
+                if (addRecord("Стена (вратарь)", k.name, `${k.dryGames} сухих игр`)) break;
             }
         }
 
@@ -92,21 +92,22 @@
             }
         });
         if (maxGoalsInMatch.goals > 0) {
-            addRecord("Рекорд по голам за матч", maxGoalsInMatch.player, `${maxGoalsInMatch.goals} голов в ворота «${maxGoalsInMatch.opponent}»`, "record-value lose");
+            addRecord("Гол за матч", maxGoalsInMatch.player, `${maxGoalsInMatch.goals} в ворота «${maxGoalsInMatch.opponent}»`);
         }
 
         const recList = document.getElementById("records-list");
         recList.innerHTML = recordsToShow.map(r => `
-            <div class="record-item">
+            <div class="glass-card">
                 <div class="record-title">${r.title}</div>
-                <div class="${r.style}">${r.name} (${r.value})</div>
+                <div class="record-name">${r.name}</div>
+                <div class="record-value">${r.value}</div>
             </div>
         `).join("");
 
-        // --- 3. ВЕХИ (ИСПРАВЛЕНО) ---
+        // --- 3. ВЕХИ ИСТОРИИ ---
         let milestones = [];
 
-        // Берем самый первый матч из базы как отправную точку
+        // Первый матч
         const sortedOldest = [...matches].filter(m => !m.technical).sort((a, b) => {
             const dA = a.date.split('.').map(Number); const dB = b.date.split('.').map(Number);
             return (dA[2] - dB[2]) || (dA[1] - dB[1]) || (dA[0] - dB[0]);
@@ -133,47 +134,33 @@
             text: `Историческая победа над «${maxWin.text.split(' против ')[1].split(' (')[0]}» со счётом ${maxWin.text.split(' против ')[0]}!`
         });
 
-        // Самый результативный матч
-        let maxGoals = { count: 0, text: "" };
-        matches.forEach(m => {
-            if (m.technical) return;
-            const totalGoals = m.ourScore + m.theirScore;
-            if (totalGoals > maxGoals.count) {
-                maxGoals = { count: totalGoals, text: `${m.ourScore}:${m.theirScore} против ${m.opponent} (${m.date})` };
-            }
-        });
-        milestones.push({
-            date: maxGoals.text.match(/\((.*?)\)/)[1], 
-            text: `Самый результативный матч в истории клуба против «${maxGoals.text.split(' против ')[1].split(' (')[0]}» (${maxGoals.count} голов).`
-        });
-
-        // Официальная регистрация (оставляем как веху, но с пояснением)
+        // Официальная регистрация
         milestones.push({
             date: '09.10.25',
             text: 'Официальная регистрация АНО «Спорт-Ревю Поволжья» в Министерстве юстиции.'
         });
 
+        // Сортируем (сначала новые)
         milestones.sort((a, b) => {
             const dA = a.date.split('.').map(Number); const dB = b.date.split('.').map(Number);
             return (dB[2] - dA[2]) || (dB[1] - dA[1]) || (dB[0] - dA[0]);
         });
-        
-        // Ограничиваем топ-4
-        milestones = milestones.slice(0, 4); 
 
         const timeline = document.getElementById("milestones-list");
         timeline.innerHTML = ""; 
         milestones.forEach(ms => {
-            const li = document.createElement("li");
-            li.innerHTML = `
+            const div = document.createElement("div");
+            div.className = "timeline-item";
+            div.innerHTML = `
+                <div class="timeline-dot"></div>
                 <div class="timeline-date">${ms.date}</div>
-                <div class="timeline-text">${ms.text}</div>
+                <div class="timeline-content">${ms.text}</div>
             `;
-            timeline.appendChild(li);
+            timeline.appendChild(div);
         });
 
     } catch (e) {
         console.error(e);
-        document.getElementById("records-list").innerHTML = `<p>Ошибка загрузки: ${e.message}</p>`;
+        document.getElementById("records-list").innerHTML = `<p style="color:red;">Ошибка загрузки: ${e.message}</p>`;
     }
 });
