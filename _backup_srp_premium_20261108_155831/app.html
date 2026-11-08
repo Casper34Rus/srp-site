@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приложение Спорт-Учёт для футбольных школ</title>
+    <meta name="description" content="Мобильное приложение для управления детской футбольной школой. Учёт финансов, посещаемости, Летопись матчей. Скачать в RuStore.">
+    <meta name="keywords" content="приложение для тренера, учет футбольной школы, спорт-учет, футбольное приложение, автоматизация спорта">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Встроенные стили для надежности, чтобы ничего не сломалось */
+        .pricing-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            margin-top: 40px; 
+            align-items: stretch;
+        }
+        @media (max-width: 768px) { .pricing-container { grid-template-columns: 1fr; } }
+        
+        .pricing-card { 
+            background-color: var(--secondary-color); 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid #333; 
+            display: flex;
+            flex-direction: column; 
+            text-align: center;
+        }
+        .pricing-card.premium { 
+            border: 2px solid var(--accent-color); 
+            box-shadow: 0 0 25px rgba(0, 119, 255, 0.15); 
+        }
+        .pricing-card h3 { font-size: 22px; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .pricing-card .price { font-size: 48px; font-weight: 800; color: var(--accent-color); margin: 0 0 5px 0; line-height: 1; }
+        .pricing-card .price span { font-size: 16px; color: #888; font-weight: 400; display: block; margin-top: 5px; }
+        
+        .pricing-card .list-wrapper { text-align: left; margin: 30px 0; flex-grow: 1; }
+        .pricing-card ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-card ul li { padding: 12px 0; border-bottom: 1px solid #2a2a2a; color: #ccc; font-size: 14px; display: flex; align-items: flex-start; line-height: 1.4; }
+        .pricing-card ul li:last-child { border-bottom: none; }
+        .pricing-card ul li::before { content: '✔'; color: #4ade80; margin-right: 12px; font-weight: bold; flex-shrink: 0; }
+        .pricing-card ul li.disabled { color: #555; text-decoration: line-through; }
+        .pricing-card ul li.disabled::before { content: '✖'; color: #ef4444; }
+        
+        .pricing-card .btn { width: 100%; padding: 16px 0; font-size: 16px; border-radius: 8px; }
+        .app-hero { text-align: center; padding: 40px 20px; }
+        .app-hero h1 { font-size: 42px; color: var(--accent-color); margin-bottom: 10px; font-weight: 800; }
+        .app-hero h2 { font-size: 20px; color: #fff; margin-bottom: 20px; font-weight: 400; }
+        .app-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип">
+                <h1>Спорт-Ревю<br>Поволжья</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" >Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html" class="active">Приложение</a>
+                <a href="contacts.html" class="nav-desktop-only" >Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only" >Отчёты АНО</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="app-hero">
+                <h1>Спорт-Учёт</h1>
+                <h2>Профессиональное управление футбольной школой</h2>
+                <p>Приложение разделено на модули. <strong>«Летопись»</strong> — полностью бесплатна. Модуль <strong>«Учёт»</strong> можно протестировать в демо-режиме, а для полноценной работы требуется подписка PRO.</p>
+            </div>
+
+            <h2 class="section-title">Выберите свой тариф</h2>
+            
+            <div class="pricing-container">
+                <!-- БЕСПЛАТНЫЙ ТАРИФ -->
+                <div class="pricing-card">
+                    <h3>Бесплатно</h3>
+                    <div class="price">0 ₽<span>навсегда</span></div>
+                    
+                    <div class="list-wrapper">
+                        <ul>
+                            <li>До 10 активных игроков</li>
+                            <li>Одна команда (группа)</li>
+                            <li>Базовое расписание и посещаемость</li>
+                            <li><strong>Модуль «Летопись»</strong> (матчи, голы)</li>
+                            <li>Локальная база данных (ваши данные только у вас)</li>
+                            <li class="disabled">Финансовый учёт (оплаты, долги)</li>
+                            <li class="disabled">Абонементы (почасовые, сессионные)</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contacts.html" class="btn btn-outline">Скачать бесплатно</a>
+                </div>
+
+                <!-- ПЛАТНЫЙ ТАРИФ -->
+                <div class="pricing-card premium">
+                    <h3>Подписка PRO</h3>
+                    <div class="price">3 999 ₽<span>в месяц</span></div>
+                    
+                    <div class="list-wrapper">
+                        <ul>
+                            <li>Всё, что в бесплатной версии</li>
+                            <li><strong>Безлимитное количество игроков и групп</strong></li>
+                            <li>Полный финансовый учёт (оплаты, долги)</li>
+                            <li>Абонементы (почасовые, сессионные)</li>
+                            <li>Расширенная аналитика и экспорт отчетов в PDF</li>
+                            <li>Приоритетная поддержка от разработчика</li>
+                            <li style="color: #888;">Облачная синхронизация с сайтом <span style="font-size:10px; background:#333; padding:2px 6px; border-radius:4px; margin-left:5px;">Скоро</span></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contacts.html" class="btn btn-primary">Оформить PRO</a>
+                </div>
+            </div>
+
+            <p class="legal-note" style="text-align: center; margin-top: 30px; font-size: 13px; color: #888;">
+                АНО «Спорт-Ревю Поволжья» является официальным правообладателем приложения.<br>
+                Все вырученные средства направляются на уставные цели: развитие детского спорта.<br>
+                Предоставляются все закрывающие документы для бухгалтерии.
+            </p>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

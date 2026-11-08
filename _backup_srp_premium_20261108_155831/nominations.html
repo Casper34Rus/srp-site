@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Номинации | СРП</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+        .award-card { background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #333; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .award-card:hover { transform: translateY(-5px); border-color: #fbbf24; }
+        .award-image { height: 200px; background: linear-gradient(135deg, #2a2a2a, #111); display: flex; justify-content: center; align-items: center; font-size: 80px; border-bottom: 2px solid #333; }
+        .award-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .award-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+        .award-subtitle { font-size: 13px; color: #fbbf24; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .award-player { font-size: 18px; color: var(--accent-color); font-weight: bold; margin-bottom: 10px; }
+        .award-desc { font-size: 14px; color: #a0a0a0; line-height: 1.6; }
+    </style>
+    <link rel="stylesheet" href="css/letopis-theme.css">
+</head>
+<body class="archive-page">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип">
+                <h1>Спорт-Ревю<br>Поволжья</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn active">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html">Приложение</a>
+                <a href="contacts.html" class="nav-desktop-only">Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only">Отчёты АНО</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Церемония награждения</h1>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Наши награды и лучшие игроки по итогам сезонов</p>
+            
+            <div id="awards-container" class="awards-grid">
+                <p>Загрузка...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div></footer>
+    <script src="js/data.js"></script>
+    <script src="js/nominations.js"></script>
+</body>
+</html>
+

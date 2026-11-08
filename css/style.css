@@ -925,3 +925,16 @@ th, td {
     align-items: center;
     border-bottom: 2px solid #333;
 }
+
+/* === ЖЕСТКОЕ СКРЫТИЕ БЛОКА ТРЕНЕРА НА ПК === */
+@media (min-width: 769px) {
+    .mobile-only-section {
+        display: none !important;
+    }
+}
+/* Исправление обрезки фото на мобильных (чтобы лицо было видно) */
+@media (max-width: 768px) {
+    .mobile-only-section img {
+        object-position: top center !important;
+    }
+}
