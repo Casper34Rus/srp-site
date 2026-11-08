@@ -39,7 +39,7 @@
                 <div class="award-content">
                     <div class="award-title">${n.title} (${n.year})</div>
                     <div class="award-subtitle">Номинация сезона</div>
-                    <div class="award-player">🏅 ${n.player || 'Команда'}</div>
+                    <div class="award-player">${n.player || 'Команда'}</div>
                     <div class="award-desc">${desc}</div>
                 </div>
             `;
@@ -49,4 +49,5 @@
         container.innerHTML = `<p>Ошибка: ${e.message}</p>`;
     }
 });
+
 

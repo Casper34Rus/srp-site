@@ -6,8 +6,9 @@
     <title>Статистика игроков | Спорт-Ревю Поволжья</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/letopis-theme.css">
 </head>
-<body>
+<body class="archive-page">
     <header class="header">
         <div class="container header-content">
             <div class="logo"><h1>Спорт-Ревю<br>Поволжья</h1></div>
@@ -40,10 +41,10 @@
                         <tr>
                             <th class="sortable" onclick="sortBy('name')">Игрок ↕</th>
                             <th class="sortable" style="text-align:center;" onclick="sortBy('games')">Игры ↕</th>
-                            <th class="sortable" style="text-align:center;" onclick="sortBy('goals')">Голы ⚽ ↕</th>
-                            <th class="sortable" style="text-align:center;" onclick="sortBy('assists')">Передачи 🎯 ↕</th>
-                            <th class="sortable" style="text-align:center; color:#fbbf24;" onclick="sortBy('yellow')">ЖК 🟨 ↕</th>
-                            <th class="sortable" style="text-align:center; color:#ef4444;" onclick="sortBy('red')">КК 🟥 ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('goals')">Голы ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('assists')">Передачи ↕</th>
+                            <th class="sortable" style="text-align:center; color:#fbbf24;" onclick="sortBy('yellow')">Жёлтые карточки ↕</th>
+                            <th class="sortable" style="text-align:center; color:#ef4444;" onclick="sortBy('red')">Красные карточки ↕</th>
                             <th class="sortable" style="text-align:center;" onclick="sortBy('total')">Очки (Г+П) ↕</th>
                         </tr>
                     </thead>
@@ -57,6 +58,7 @@
     <script src="js/stats.js"></script>
 <script src="js/animations.js"></script>\n</body>
 </html>
+
 
 
 
