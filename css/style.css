@@ -871,3 +871,31 @@ th, td {
         padding-top: 40px;
     }
 }
+
+/* === ФИКС КНОПОК И МЕНЮ НА ТЕЛЕФОНЕ === */
+@media (max-width: 768px) {
+    /* Кнопки не будут ломать текст на несколько строк */
+    .btn {
+        white-space: nowrap !important; 
+        font-size: 15px !important;
+        padding: 15px 10px !important;
+    }
+
+    /* Улучшенное выпадающее меню для мобильных */
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none; /* Скрыто по умолчанию */
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        min-width: 160px;
+        z-index: 999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+    /* Класс .show будет добавляться через JavaScript */
+    .dropdown-content.show {
+        display: block;
+    }
+}

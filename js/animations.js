@@ -16,3 +16,27 @@
 
     elementsToAnimate.forEach(el => observer.observe(el));
 });
+
+// Скрипт для удобного открытия меню на телефонах
+document.addEventListener("DOMContentLoaded", () => {
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    if (dropbtn && dropdownContent) {
+        // При клике на "Летопись"
+        dropbtn.addEventListener('click', function(e) {
+            // Если это мобильный телефон (ширина экрана <= 768)
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // Отменяем переход по ссылке (чтобы меню просто открылось)
+                dropdownContent.classList.toggle('show');
+            }
+        });
+
+        // Закрываем меню, если кликнули в любое другое место
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && !e.target.closest('.dropdown')) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    }
+});
