@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ru">
 <head>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Спорт-Учёт — приложение для футбольных школ в разработке</title>
-    <meta name="description" content="Спорт-Учёт — разрабатываемое приложение для тренеров и футбольных школ. Планируемые возможности, тарифы и информация о будущем выпуске в RuStore.">
+    <meta name="description" content="Спорт-Учёт — приложение для тренеров и футбольных школ. Летопись, посещаемость, финансы, отчёты и планы развития. Скоро релиз в RuStore.">
     <meta name="keywords" content="приложение для тренера, учет футбольной школы, спорт-учет, футбольное приложение, автоматизация спорта">
     
     <link rel="stylesheet" href="css/style.css">
@@ -13,41 +13,164 @@
     
     <style>
         /* Встроенные стили для надежности, чтобы ничего не сломалось */
-        .pricing-container { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            margin-top: 40px; 
-            align-items: stretch;
+        /* SPORT-REVYU APP LAUNCH PRESENTATION */
+
+        .srp-app-launch {
+            background: linear-gradient(
+                145deg,
+                #10182b 0%,
+                #15233c 52%,
+                #10182b 100%
+            );
+            border: 1px solid rgba(255, 215, 0, 0.32);
+            border-radius: 20px;
+            padding: clamp(26px, 5vw, 60px);
+            margin: 35px auto 40px;
+            max-width: 1120px;
+            box-sizing: border-box;
+            box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
         }
-        @media (max-width: 768px) { .pricing-container { grid-template-columns: 1fr; } }
-        
-        .pricing-card { 
-            background-color: var(--secondary-color); 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid #333; 
-            display: flex;
-            flex-direction: column; 
+
+        .srp-app-launch__eyebrow {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
             text-align: center;
+            margin-bottom: 16px;
         }
-        .pricing-card.premium { 
-            border: 2px solid var(--accent-color); 
-            box-shadow: 0 0 25px rgba(0, 119, 255, 0.15); 
+
+        .srp-app-launch__title {
+            color: #fff;
+            font-size: clamp(28px, 4.5vw, 46px);
+            line-height: 1.17;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 auto 18px;
+            max-width: 850px;
         }
-        .pricing-card h3 { font-size: 22px; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
-        .pricing-card .price { font-size: 48px; font-weight: 800; color: var(--accent-color); margin: 0 0 5px 0; line-height: 1; }
-        .pricing-card .price span { font-size: 16px; color: #888; font-weight: 400; display: block; margin-top: 5px; }
-        
-        .pricing-card .list-wrapper { text-align: left; margin: 30px 0; flex-grow: 1; }
-        .pricing-card ul { list-style: none; padding: 0; margin: 0; }
-        .pricing-card ul li { padding: 12px 0; border-bottom: 1px solid #2a2a2a; color: #ccc; font-size: 14px; display: flex; align-items: flex-start; line-height: 1.4; }
-        .pricing-card ul li:last-child { border-bottom: none; }
-        .pricing-card ul li::before { content: '✔'; color: #4ade80; margin-right: 12px; font-weight: bold; flex-shrink: 0; }
-        .pricing-card ul li.disabled { color: #555; text-decoration: line-through; }
-        .pricing-card ul li.disabled::before { content: '✖'; color: #ef4444; }
-        
-        .pricing-card .btn { width: 100%; padding: 16px 0; font-size: 16px; border-radius: 8px; }
+
+        .srp-app-launch__description {
+            color: #d8e1ee;
+            font-size: 16px;
+            line-height: 1.75;
+            text-align: center;
+            margin: 0 auto 36px;
+            max-width: 740px;
+        }
+
+        .srp-app-launch__grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 34px;
+        }
+
+        .srp-app-launch__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            min-width: 0;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid rgba(255, 255, 255, .11);
+            border-radius: 13px;
+            padding: 22px;
+        }
+
+        .srp-app-launch__feature:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+        }
+
+        .srp-app-launch__check {
+            flex-shrink: 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255, 215, 0, .45);
+            border-radius: 10px;
+            color: #ffd700;
+            font-size: 20px;
+            font-weight: bold;
+            background: rgba(255, 215, 0, .065);
+        }
+
+        .srp-app-launch__feature h3 {
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0 0 7px;
+        }
+
+        .srp-app-launch__feature p {
+            color: #b6c4d8;
+            font-size: 14px;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .srp-app-launch__action {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 30px;
+        }
+
+        .srp-app-launch__download {
+            display: block;
+            width: 100%;
+            max-width: 460px;
+            min-height: 58px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 16px 22px;
+            border: 1px solid rgba(255,215,0,.55);
+            border-radius: 12px;
+            background: linear-gradient(135deg, #b99a36, #947622);
+            color: #10182b;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 800;
+            text-align: center;
+            cursor: not-allowed;
+            opacity: .78;
+            box-shadow: none;
+        }
+
+        .srp-app-launch__download:disabled {
+            color: #10182b;
+            -webkit-text-fill-color: #10182b;
+        }
+
+        .srp-app-launch__note {
+            color: #b6c4d8;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+            margin: 15px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .srp-app-launch__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .srp-app-launch__feature:last-child:nth-child(odd) {
+                grid-column: auto;
+            }
+
+            .srp-app-launch__feature {
+                padding: 18px;
+            }
+
+            .srp-app-launch__download {
+                font-size: 15px;
+            }
+        }
+
         .app-hero { text-align: center; padding: 40px 20px; }
         .app-hero h1 { font-size: 42px; color: var(--accent-color); margin-bottom: 10px; font-weight: 800; }
         .app-hero h2 { font-size: 20px; color: #fff; margin-bottom: 20px; font-weight: 400; }
@@ -88,58 +211,106 @@
             <div class="app-hero">
                 <h1>Спорт-Учёт</h1>
                 <h2>Профессиональное управление футбольной школой</h2>
-                <p>«Спорт-Учёт» — мобильное приложение для тренеров и руководителей детских футбольных школ. Мы разрабатываем инструменты для учёта игроков, посещаемости, матчей и истории команды; финансовые функции и абонементы также входят в планы развития.<br><br><strong style="color: #e7c46d;">Приложение готовится к выпуску. Установка и подписка пока недоступны.</strong></p>
+                <p>«Спорт-Учёт» — мобильное приложение для тренеров и руководителей детских футбольных школ. Мы разрабатываем инструменты для учёта игроков, посещаемости, матчей и истории команды; финансовые функции и абонементы также входят в планы развития.<br><br><strong style="color: #e7c46d;">Приложение готовится к выпуску. Приложение готовится к релизу. Установка пока недоступна.</strong></p>
             </div>
 
-            <h2 class="section-title">Планируемые тарифы</h2>
-            
-            <p style="max-width: 780px; margin: 0 auto 28px; text-align: center; color: #c5cfdd; line-height: 1.6;">Ниже показана планируемая модель приложения. Состав функций и условия могут измениться до официального выпуска.</p>
-            <div class="pricing-container">
-                <!-- БЕСПЛАТНЫЙ ТАРИФ -->
-                <div class="pricing-card">
-                    <h3>Бесплатно</h3>
-                    <div class="price">0 ₽<span>навсегда</span></div>
-                    
-                    <div class="list-wrapper">
-                        <ul>
-                            <li>До 10 активных игроков</li>
-                            <li>Одна команда (группа)</li>
-                            <li>Базовое расписание и посещаемость</li>
-                            <li><strong>Модуль «Летопись»</strong> (матчи, голы)</li>
-                            <li>Локальная база данных (ваши данные только у вас)</li>
-                            <li class="disabled">Финансовый учёт (оплаты, долги)</li>
-                            <li class="disabled">Абонементы (почасовые, сессионные)</li>
-                        </ul>
-                    </div>
-                    
-                    <span class="btn btn-outline" style="display: block; text-align: center; opacity: 0.5; cursor: not-allowed; border-color: #555; color: #888;">Скоро в RuStore</span>
-                    <p style="margin-top: 12px; color: #b6c3d5; font-size: 13px; text-align: center;">После публикации здесь появится проверенная ссылка на установку.</p>
+            <!-- SRP_APP_LAUNCH_START -->
+            <section class="srp-app-launch" aria-labelledby="srp-launch-title">
+
+                <div class="srp-app-launch__eyebrow">
+                    Спорт-Учёт · Готовимся к запуску
                 </div>
 
-                <!-- ПЛАТНЫЙ ТАРИФ -->
-                <div class="pricing-card premium">
-                    <h3>Подписка PRO</h3>
-                    <div class="price" style="font-size: 24px; line-height: 1.3;">Стоимость уточняется<span>объявим перед запуском</span></div>
-                    
-                    <div class="list-wrapper">
-                        <ul>
-                            <li>Всё, что в бесплатной версии</li>
-                            <li><strong>Безлимитное количество игроков и групп</strong></li>
-                            <li>Полный финансовый учёт (оплаты, долги)</li>
-                            <li>Абонементы (почасовые, сессионные)</li>
-                            <li>Расширенная аналитика и экспорт отчетов в PDF</li>
-                            <li>Приоритетная поддержка от разработчика</li>
-                            <li style="color: #888;">Облачная синхронизация с сайтом <span style="font-size:10px; background:#333; padding:2px 6px; border-radius:4px; margin-left:5px;">Скоро</span></li>
-                        </ul>
-                    </div>
-                    
-                    <span class="btn btn-primary" style="display: block; text-align: center; opacity: 0.5; cursor: not-allowed; background-color: #555; color: #888; border: none;">Скоро</span>
-                </div>
-            </div>
+                <h2 id="srp-launch-title" class="srp-app-launch__title">
+                    Совсем скоро мы выпустим приложение!
+                </h2>
 
+                <p class="srp-app-launch__description">
+                    Один инструмент для тренеров и руководителей
+                    футбольных школ. Собираем ключевые процессы
+                    управления командой в удобном приложении.
+                    Ниже — возможности, над которыми мы работаем.
+                </p>
+
+                <div class="srp-app-launch__grid">
+
+                    <article class="srp-app-launch__feature">
+                        <span class="srp-app-launch__check" aria-hidden="true">&#10003;</span>
+                        <div>
+                            <h3>Модуль «Летопись»</h3>
+                            <p>
+                                Матчи, голы, статистика игроков
+                                и спортивная история команды.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="srp-app-launch__feature">
+                        <span class="srp-app-launch__check" aria-hidden="true">&#10003;</span>
+                        <div>
+                            <h3>Финансовый учёт</h3>
+                            <p>
+                                Оплаты, абонементы, задолженности
+                                и контроль финансов школы.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="srp-app-launch__feature">
+                        <span class="srp-app-launch__check" aria-hidden="true">&#10003;</span>
+                        <div>
+                            <h3>Посещаемость и расписание</h3>
+                            <p>
+                                Учёт тренировок, групп,
+                                посещений и расписания занятий.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="srp-app-launch__feature">
+                        <span class="srp-app-launch__check" aria-hidden="true">&#10003;</span>
+                        <div>
+                            <h3>PDF-отчёты</h3>
+                            <p>
+                                Планируем формирование удобных
+                                отчётов для работы школы.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="srp-app-launch__feature">
+                        <span class="srp-app-launch__check" aria-hidden="true">&#10003;</span>
+                        <div>
+                            <h3>Облачная синхронизация с сайтом</h3>
+                            <p>
+                                Функция находится в планах развития.
+                                О сроках её появления сообщим отдельно.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="srp-app-launch__action">
+                    <button
+                        type="button"
+                        class="srp-app-launch__download"
+                        disabled
+                        aria-disabled="true">
+                        Скачать в RuStore (Скоро)
+                    </button>
+
+                    <p class="srp-app-launch__note">
+                        Ссылка на установку появится
+                        после официального релиза.
+                    </p>
+                </div>
+
+            </section>
+            <!-- SRP_APP_LAUNCH_END -->
             <p class="legal-note" style="text-align: center; margin-top: 30px; font-size: 13px; color: #888;">
                 АНО «Спорт-Ревю Поволжья» является официальным правообладателем приложения.<br>
-                Все вырученные средства направляются на уставные цели: развитие детского спорта.<br>
+                Проект создаётся для развития детского спорта и поддержки работы футбольных школ.<br>
                 Предоставляются все закрывающие документы для бухгалтерии.
             </p>
 
