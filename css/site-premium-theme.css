@@ -1,0 +1,1388 @@
+﻿
+/* ============================================================
+   SPORT REVIEW — PREMIUM DESIGN SYSTEM V2
+   FOOTBALL ACADEMY + LETOPIS
+   ============================================================ */
+
+:root {
+
+    --srp-bg: #091326;
+    --srp-bg-light: #101d34;
+
+    --srp-card: #14223a;
+    --srp-card-hover: #192a45;
+
+    --srp-gold: #d7b45a;
+    --srp-gold-light: #f5d98b;
+
+    --srp-blue: #2477d4;
+    --srp-blue-light: #4599ee;
+
+    --srp-white: #f4f6fa;
+    --srp-muted: #a2aec1;
+
+    --srp-border: rgba(215,180,90,.24);
+
+    --srp-shadow:
+        0 14px 40px rgba(0,0,0,.28);
+
+    --srp-radius: 16px;
+
+    /* Совместимость с существующим style.css */
+    --bg-color: #091326;
+    --text-color: #f4f6fa;
+    --accent-color: #d7b45a;
+    --accent-hover: #b99843;
+    --secondary-color: #14223a;
+    --text-muted: #a2aec1;
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body.srp-premium-page {
+
+    background:
+        radial-gradient(
+            ellipse at 50% -15%,
+            rgba(37,66,110,.35),
+            transparent 55%
+        ),
+        var(--srp-bg) !important;
+
+    color: var(--srp-white) !important;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+body.srp-premium-page *,
+body.srp-premium-page *::before,
+body.srp-premium-page *::after {
+    box-sizing: border-box;
+}
+
+body.srp-premium-page ::selection {
+    background: rgba(215,180,90,.35);
+    color: #fff;
+}
+
+body.srp-premium-page .container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+body.srp-premium-page a {
+    transition:
+        color .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+body.srp-premium-page .header {
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(9,19,38,.96) !important;
+
+    border-bottom: 1px solid var(--srp-border) !important;
+
+    padding: 15px 0 !important;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+body.srp-premium-page .header-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    max-width: 1240px;
+}
+
+body.srp-premium-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+body.srp-premium-page .logo img {
+
+    width: 52px !important;
+    height: 52px !important;
+
+    object-fit: contain;
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 10px;
+
+    margin: 0 5px 0 0 !important;
+}
+
+body.srp-premium-page .logo h1 {
+
+    color: var(--srp-gold-light) !important;
+
+    font-size: 17px !important;
+
+    line-height: 1.2;
+
+    letter-spacing: .8px;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+body.srp-premium-page .nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px !important;
+
+    flex-wrap: wrap !important;
+
+    width: auto;
+}
+
+body.srp-premium-page .nav > a,
+body.srp-premium-page .nav .dropbtn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    color: var(--srp-muted) !important;
+
+    background: transparent !important;
+
+    border: 1px solid transparent;
+
+    border-radius: 9px;
+
+    padding: 10px 12px !important;
+
+    margin: 0 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+body.srp-premium-page .nav > a:hover,
+body.srp-premium-page .nav .dropbtn:hover,
+body.srp-premium-page .nav .active {
+
+    color: var(--srp-gold-light) !important;
+
+    background: rgba(215,180,90,.09) !important;
+
+    border-color: var(--srp-border);
+}
+
+body.srp-premium-page .dropdown-content {
+
+    background: #111e34 !important;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-radius: 12px !important;
+
+    padding: 7px !important;
+
+    box-shadow: var(--srp-shadow);
+
+    z-index: 1200;
+}
+
+body.srp-premium-page .dropdown-content a {
+
+    color: var(--srp-muted) !important;
+
+    display: block;
+
+    padding: 11px 14px !important;
+
+    margin: 0 !important;
+
+    border-radius: 8px;
+
+    font-size: 13px !important;
+}
+
+body.srp-premium-page .dropdown-content a:hover {
+
+    background: rgba(215,180,90,.12) !important;
+
+    color: var(--srp-gold-light) !important;
+}
+
+/* ============================================================
+   ANNOUNCEMENT
+   ============================================================ */
+
+body.srp-premium-page > div[style*="background-color: var(--accent-color)"] {
+
+    background:
+        linear-gradient(90deg,#9c7934,#d7b45a,#9c7934)
+        !important;
+
+    color: #101a2d !important;
+
+    padding: 12px 15px !important;
+
+    font-size: 13px !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: 1.2px;
+
+    border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .hero {
+
+    position: relative;
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    min-height: 560px;
+
+    padding: clamp(75px,10vw,125px) 0 !important;
+
+    border-bottom: 2px solid var(--srp-gold) !important;
+}
+
+body.srp-premium-page:not(.archive-page) .hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,13,28,.95) 0%,
+            rgba(5,13,28,.76) 55%,
+            rgba(5,13,28,.40) 100%
+        );
+}
+
+body.srp-premium-page:not(.archive-page) .hero > .container {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+body.srp-premium-page:not(.archive-page) .hero > .container > div:first-child {
+
+    color: var(--srp-gold) !important;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px !important;
+}
+
+body.srp-premium-page:not(.archive-page) .hero h1,
+body.srp-premium-page:not(.archive-page) .hero h2 {
+
+    color: #fff !important;
+
+    font-size: clamp(30px,5vw,54px) !important;
+
+    font-weight: 900 !important;
+
+    line-height: 1.13 !important;
+
+    letter-spacing: -1.2px;
+
+    text-shadow: 0 5px 25px rgba(0,0,0,.7);
+
+    max-width: 950px;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+body.srp-premium-page:not(.archive-page) .hero-info {
+
+    color: #d4deed !important;
+
+    font-size: clamp(15px,2vw,18px) !important;
+
+    line-height: 1.8 !important;
+
+    max-width: 760px !important;
+}
+
+body.srp-premium-page .hero-buttons {
+
+    gap: 14px !important;
+
+    margin-top: 35px !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+body.srp-premium-page .btn {
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-height: 48px;
+
+    border-radius: 10px !important;
+
+    padding: 13px 22px !important;
+
+    font-size: 14px !important;
+
+    font-weight: 800 !important;
+
+    text-decoration: none;
+
+    white-space: normal !important;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+body.srp-premium-page .btn-primary {
+
+    background:
+        linear-gradient(135deg,#f1d17b,#c49d43)
+        !important;
+
+    border: 1px solid var(--srp-gold-light) !important;
+
+    color: #101a2d !important;
+
+    box-shadow: 0 8px 24px rgba(215,180,90,.20);
+}
+
+body.srp-premium-page .btn-primary:hover {
+
+    background:
+        linear-gradient(135deg,#ffe29a,#d7b45a)
+        !important;
+
+    color: #091326 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 30px rgba(215,180,90,.3);
+}
+
+body.srp-premium-page .btn-outline {
+
+    border: 1px solid var(--srp-border) !important;
+
+    color: var(--srp-gold-light) !important;
+
+    background: rgba(215,180,90,.04) !important;
+}
+
+body.srp-premium-page .btn-outline:hover {
+
+    border-color: var(--srp-gold) !important;
+
+    background: rgba(215,180,90,.13) !important;
+
+    color: #fff !important;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .section {
+
+    padding: clamp(38px,6vw,75px) 0 !important;
+
+    background: transparent !important;
+}
+
+body.srp-premium-page:not(.archive-page) .section-title {
+
+    color: var(--srp-white) !important;
+
+    font-size: clamp(25px,3.5vw,36px) !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: -.6px;
+
+    margin-bottom: 30px !important;
+}
+
+body.srp-premium-page:not(.archive-page) .section-title::before {
+
+    content: none !important;
+}
+
+body.srp-premium-page:not(.archive-page) .section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 72px;
+
+    height: 3px;
+
+    background:
+        linear-gradient(90deg,transparent,var(--srp-gold),transparent)
+        !important;
+
+    margin: 15px auto 0 !important;
+
+    box-shadow: 0 0 18px rgba(215,180,90,.3);
+}
+
+/* ============================================================
+   CONTENT CARDS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .info-block,
+body.srp-premium-page:not(.archive-page) .coach-card,
+body.srp-premium-page:not(.archive-page) .address-card,
+body.srp-premium-page:not(.archive-page) .info-card,
+body.srp-premium-page:not(.archive-page) .report-card,
+body.srp-premium-page:not(.archive-page) .pricing-card {
+
+    background:
+        linear-gradient(145deg,#192b47,#101a2d)
+        !important;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-radius: var(--srp-radius) !important;
+
+    box-shadow: var(--srp-shadow);
+
+    overflow: hidden;
+}
+
+body.srp-premium-page:not(.archive-page) .info-block {
+
+    padding: 27px !important;
+
+    margin-bottom: 20px;
+}
+
+body.srp-premium-page:not(.archive-page) .info-block h2,
+body.srp-premium-page:not(.archive-page) .info-block h3 {
+
+    color: var(--srp-gold-light) !important;
+
+    margin-bottom: 17px;
+}
+
+body.srp-premium-page:not(.archive-page) .info-block p {
+
+    color: #c3cede !important;
+
+    line-height: 1.8;
+}
+
+/* Общие тёмные карточки с inline-стилями на главной */
+
+body.srp-premium-page:not(.archive-page) [style*="background: #1a1a1a"],
+body.srp-premium-page:not(.archive-page) [style*="background-color: #1a1a1a"] {
+
+    background:
+        linear-gradient(145deg,#192b47,#101a2d)
+        !important;
+
+    border: 1px solid rgba(215,180,90,.18);
+
+    border-radius: 15px !important;
+}
+
+/* ============================================================
+   ACHIEVEMENTS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .achievements-list {
+
+    display: grid;
+
+    gap: 12px;
+}
+
+body.srp-premium-page:not(.archive-page) .achievements-list li {
+
+    background:
+        linear-gradient(120deg,#192b47,#101a2d)
+        !important;
+
+    color: #ecf1f8 !important;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-left: 3px solid var(--srp-gold) !important;
+
+    border-radius: 11px;
+
+    padding: 18px !important;
+
+    margin: 0 !important;
+
+    line-height: 1.6;
+}
+
+/* ============================================================
+   LOCATIONS ON HOMEPAGE
+   ============================================================ */
+
+body.srp-premium-page .locations-callout {
+
+    background:
+        linear-gradient(145deg,#172943,#101a2d)
+        !important;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-radius: 16px !important;
+
+    padding: 30px !important;
+
+    box-shadow: var(--srp-shadow);
+}
+
+body.srp-premium-page .locations-callout h3 {
+
+    color: var(--srp-gold-light) !important;
+
+    font-size: 19px !important;
+}
+
+/* ============================================================
+   COACH
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .coach-feature-section {
+
+    /* Visibility is controlled by the mobile-only rules below. */
+
+    margin-top: 65px !important;
+
+    margin-bottom: 45px !important;
+
+    border-top: 1px solid var(--srp-border);
+
+    padding-top: 40px;
+}
+
+body.srp-premium-page .coach-photo img {
+
+    width: 100%;
+
+    object-fit: cover;
+}
+
+body.srp-premium-page .coach-name {
+
+    color: var(--srp-gold-light) !important;
+
+    font-size: 24px !important;
+
+    font-weight: 900;
+}
+
+body.srp-premium-page .coach-role {
+
+    color: var(--srp-gold) !important;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+body.srp-premium-page .coach-desc,
+body.srp-premium-page .coach-info p {
+
+    color: #c4cfdf !important;
+
+    line-height: 1.8;
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .photo-gallery {
+
+    gap: 18px;
+
+    margin-top: 30px;
+}
+
+body.srp-premium-page .photo-gallery img {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 270px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-radius: 14px !important;
+
+    box-shadow: var(--srp-shadow);
+
+    transition: transform .35s,border-color .35s;
+}
+
+body.srp-premium-page .photo-gallery img:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--srp-gold) !important;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .section p {
+
+    line-height: 1.75;
+}
+
+body.srp-premium-page:not(.archive-page) .section a {
+
+    text-underline-offset: 4px;
+}
+
+/* ============================================================
+   CONTACTS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .coach-grid {
+
+    gap: 25px;
+}
+
+body.srp-premium-page:not(.archive-page) .address-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    gap: 20px;
+}
+
+body.srp-premium-page:not(.archive-page) .address-card {
+
+    padding: 24px !important;
+
+    transition: transform .3s,border-color .3s;
+}
+
+body.srp-premium-page:not(.archive-page) .address-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--srp-gold) !important;
+}
+
+body.srp-premium-page:not(.archive-page) .address-card h3 {
+
+    color: var(--srp-gold-light) !important;
+}
+
+body.srp-premium-page:not(.archive-page) .reqs {
+
+    background: linear-gradient(145deg,#15243d,#101a2d);
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    color: #cbd5e1;
+}
+
+/* ============================================================
+   LOCATION PAGE DETAILS
+   ============================================================ */
+
+body.srp-premium-page .location-details {
+
+    padding: 55px 0 75px;
+
+    border-top: 1px solid var(--srp-border);
+
+    background: rgba(16,29,52,.35);
+}
+
+body.srp-premium-page .location-details__inner {
+
+    max-width: 1050px;
+}
+
+body.srp-premium-page .location-eyebrow {
+
+    color: var(--srp-gold);
+
+    font-weight: 900;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+body.srp-premium-page .location-details h2 {
+
+    color: var(--srp-gold-light);
+
+    font-size: clamp(25px,4vw,34px);
+
+    margin-bottom: 15px;
+}
+
+body.srp-premium-page .location-details p {
+
+    color: #bfccdd;
+
+    line-height: 1.85;
+
+    max-width: 850px;
+}
+
+body.srp-premium-page .location-facts {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,minmax(0,1fr));
+
+    gap: 15px;
+
+    margin: 28px 0;
+}
+
+body.srp-premium-page .location-fact {
+
+    background: linear-gradient(145deg,#192b47,#101a2d);
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 13px;
+
+    padding: 20px;
+}
+
+body.srp-premium-page .location-fact span {
+
+    display: block;
+
+    color: var(--srp-gold);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+body.srp-premium-page .location-fact strong {
+
+    color: #fff;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+body.srp-premium-page .location-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+body.srp-premium-page .location-map-link {
+
+    color: var(--srp-gold-light);
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    padding: 12px 10px;
+}
+
+/* ============================================================
+   APP / PRICING
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .app-hero {
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(215,180,90,.12),
+            transparent 65%
+        ),
+        linear-gradient(145deg,#172943,#0c1729)
+        !important;
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 20px;
+
+    padding: clamp(25px,5vw,55px) !important;
+
+    margin-bottom: 45px;
+}
+
+body.srp-premium-page .app-hero h1 {
+
+    color: var(--srp-gold-light) !important;
+
+    font-size: clamp(34px,5vw,50px);
+
+    font-weight: 900;
+}
+
+body.srp-premium-page .app-hero h2 {
+
+    color: #fff !important;
+}
+
+body.srp-premium-page .app-hero p {
+
+    color: #bdc9da;
+
+    line-height: 1.8;
+
+    max-width: 800px;
+
+    margin: 15px auto 0;
+}
+
+body.srp-premium-page:not(.archive-page) .pricing-container {
+
+    gap: 22px;
+}
+
+body.srp-premium-page:not(.archive-page) .pricing-card {
+
+    padding: 28px !important;
+
+    transition: transform .3s,border-color .3s;
+}
+
+body.srp-premium-page .pricing-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--srp-gold) !important;
+}
+
+body.srp-premium-page .pricing-card h3 {
+
+    color: var(--srp-gold-light) !important;
+}
+
+body.srp-premium-page .pricing-card .price {
+
+    color: var(--srp-gold-light) !important;
+
+    font-size: 35px !important;
+
+    font-weight: 900;
+}
+
+/* ============================================================
+   REPORTS
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .report-card {
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+body.srp-premium-page .report-info h3 {
+
+    color: var(--srp-gold-light) !important;
+}
+
+body.srp-premium-page .btn-download {
+
+    color: var(--srp-gold-light) !important;
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 9px;
+
+    padding: 11px 18px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+body.srp-premium-page .btn-download:hover {
+
+    background: rgba(215,180,90,.12);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+body.srp-premium-page #faq {
+
+    scroll-margin-top: 100px;
+}
+
+body.srp-premium-page #faq h2 {
+
+    color: var(--srp-gold-light);
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+body.srp-premium-page input,
+body.srp-premium-page select,
+body.srp-premium-page textarea {
+
+    color: var(--srp-white) !important;
+
+    background: #0d192d !important;
+
+    border: 1px solid var(--srp-border) !important;
+
+    border-radius: 10px !important;
+
+    min-height: 46px;
+
+    padding: 13px 15px !important;
+
+    font-family: inherit;
+
+    max-width: 100%;
+}
+
+body.srp-premium-page input::placeholder,
+body.srp-premium-page textarea::placeholder {
+
+    color: #8796ad !important;
+}
+
+body.srp-premium-page input:focus,
+body.srp-premium-page select:focus,
+body.srp-premium-page textarea:focus {
+
+    outline: 2px solid rgba(215,180,90,.45);
+
+    border-color: var(--srp-gold) !important;
+}
+
+body.srp-premium-page option {
+
+    background: #101d34;
+
+    color: #fff;
+}
+
+body.srp-premium-page button:focus-visible,
+body.srp-premium-page a:focus-visible,
+body.srp-premium-page input:focus-visible,
+body.srp-premium-page select:focus-visible {
+
+    outline: 2px solid var(--srp-gold);
+
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+body.srp-premium-page:not(.archive-page) .table-container {
+
+    background: linear-gradient(145deg,#15243d,#0f1a2d);
+
+    border: 1px solid var(--srp-border);
+
+    border-radius: 15px;
+
+    overflow-x: auto;
+
+    box-shadow: var(--srp-shadow);
+}
+
+body.srp-premium-page:not(.archive-page) th {
+
+    background: #1b2b46;
+
+    color: var(--srp-gold-light);
+
+    border-bottom: 1px solid var(--srp-border);
+}
+
+body.srp-premium-page:not(.archive-page) td {
+
+    color: #dce3ed;
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+body.srp-premium-page .footer {
+
+    background: #070f1d !important;
+
+    border-top: 1px solid var(--srp-border) !important;
+
+    color: var(--srp-muted) !important;
+
+    padding: 35px 0 !important;
+
+    text-align: center;
+}
+
+body.srp-premium-page .footer p {
+
+    color: var(--srp-muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+/* ============================================================
+   MOBILE STICKY CTA
+   ============================================================ */
+
+.srp-mobile-cta {
+
+    display: none;
+
+    position: fixed;
+
+    left: 15px;
+
+    right: 15px;
+
+    bottom: calc(12px + env(safe-area-inset-bottom));
+
+    z-index: 2500;
+
+    padding: 15px 20px;
+
+    border: 1px solid var(--srp-gold-light);
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#f1d17b,#c49d43);
+
+    color: #101a2d !important;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1050px) {
+
+    body.srp-premium-page .header-content {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    body.srp-premium-page .nav {
+
+        justify-content: center;
+
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    body.srp-premium-page .header {
+
+        padding: 11px 0 !important;
+    }
+
+    body.srp-premium-page .header-content {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding-bottom: 5px;
+    }
+
+    body.srp-premium-page .nav {
+
+        display: flex;
+
+        width: 100%;
+
+        flex-wrap: wrap !important;
+
+        justify-content: center;
+
+        gap: 5px !important;
+
+        overflow: visible !important;
+    }
+
+    body.srp-premium-page .nav > a,
+    body.srp-premium-page .nav .dropbtn {
+
+        font-size: 11px !important;
+
+        padding: 8px 9px !important;
+    }
+
+    body.srp-premium-page .hero {
+
+        min-height: auto;
+
+        padding: 65px 0 !important;
+    }
+
+    body.srp-premium-page:not(.archive-page) .hero h1,
+    body.srp-premium-page:not(.archive-page) .hero h2 {
+
+        font-size: clamp(29px,8vw,40px) !important;
+    }
+
+    body.srp-premium-page .hero-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    body.srp-premium-page .hero-buttons .btn {
+
+        width: 100%;
+    }
+
+    body.srp-premium-page:not(.archive-page) .section {
+
+        padding: 40px 0 !important;
+    }
+
+    body.srp-premium-page:not(.archive-page) .info-grid,
+    body.srp-premium-page:not(.archive-page) .address-grid {
+
+        grid-template-columns: 1fr !important;
+
+        gap: 15px;
+    }
+
+    body.srp-premium-page .photo-gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    body.srp-premium-page .photo-gallery img {
+
+        height: 230px;
+    }
+
+    body.srp-premium-page .location-facts {
+
+        grid-template-columns: 1fr;
+    }
+
+    body.srp-premium-page .location-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    body.srp-premium-page .location-actions .btn {
+
+        width: 100%;
+    }
+
+    body.srp-premium-page .report-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    body.srp-premium-page .pricing-container {
+
+        grid-template-columns: 1fr !important;
+    }
+
+    body.srp-premium-page .srp-mobile-cta,
+    body.srp-premium-page .srp-mobile-cta {
+
+        display: block;
+    }
+
+    body.srp-premium-page {
+
+        padding-bottom: 78px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    body.srp-premium-page .logo h1 {
+
+        font-size: 15px !important;
+    }
+
+    body.srp-premium-page .nav > a,
+    body.srp-premium-page .nav .dropbtn {
+
+        font-size: 10px !important;
+
+        padding: 7px !important;
+    }
+
+    body.srp-premium-page .section-title {
+
+        font-size: 24px !important;
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.srp-premium-page *,
+    body.srp-premium-page *::before,
+    body.srp-premium-page *::after {
+
+        animation-duration: .01ms !important;
+
+        transition-duration: .01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================
+   END SPORT REVIEW PREMIUM DESIGN SYSTEM V2
+   ============================================================ */
+
+/* Coach card belongs only to the mobile homepage. */
+@media (min-width: 769px) {
+    body.srp-premium-page:not(.archive-page) .coach-feature-section {
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+    body.srp-premium-page:not(.archive-page) .coach-feature-section {
+        display: block !important;
+    }
+}

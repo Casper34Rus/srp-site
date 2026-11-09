@@ -1,0 +1,10 @@
+# Private application exports and local database files must never enter this public website repository.
+/data/backup.json
+/_backups/
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.bak
+*.backup

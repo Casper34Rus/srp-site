@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФутСфера — футбольная платформа | Летопись и Спорт-Учёт</title>
+    <meta name="description" content="ФутСфера — футбольная платформа в разработке: бесплатная Летопись для команд и Спорт-Учёт для управления футбольными школами. Одна регистрация, разные права доступа.">
+    <meta name="keywords" content="ФутСфера, футбольная платформа, Летопись футбола, Спорт-Учёт, приложение для футбольной школы, учёт тренировок">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Встроенные стили для надежности, чтобы ничего не сломалось */
+        /* SPORT-REVYU APP LAUNCH PRESENTATION */
+
+        .srp-app-launch {
+            background: linear-gradient(
+                145deg,
+                #10182b 0%,
+                #15233c 52%,
+                #10182b 100%
+            );
+            border: 1px solid rgba(255, 215, 0, 0.32);
+            border-radius: 20px;
+            padding: clamp(26px, 5vw, 60px);
+            margin: 35px auto 40px;
+            max-width: 1120px;
+            box-sizing: border-box;
+            box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
+        }
+
+        .srp-app-launch__eyebrow {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .srp-app-launch__title {
+            color: #fff;
+            font-size: clamp(28px, 4.5vw, 46px);
+            line-height: 1.17;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 auto 18px;
+            max-width: 850px;
+        }
+
+        .srp-app-launch__description {
+            color: #d8e1ee;
+            font-size: 16px;
+            line-height: 1.75;
+            text-align: center;
+            margin: 0 auto 36px;
+            max-width: 740px;
+        }
+
+        .srp-app-launch__grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 34px;
+        }
+
+        .srp-app-launch__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            min-width: 0;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid rgba(255, 255, 255, .11);
+            border-radius: 13px;
+            padding: 22px;
+        }
+
+        .srp-app-launch__feature:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+        }
+
+        .srp-app-launch__check {
+            flex-shrink: 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255, 215, 0, .45);
+            border-radius: 10px;
+            color: #ffd700;
+            font-size: 20px;
+            font-weight: bold;
+            background: rgba(255, 215, 0, .065);
+        }
+
+        .srp-app-launch__feature h3 {
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0 0 7px;
+        }
+
+        .srp-app-launch__feature p {
+            color: #b6c4d8;
+            font-size: 14px;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .srp-app-launch__action {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 30px;
+        }
+
+        .srp-app-launch__download {
+            display: block;
+            width: 100%;
+            max-width: 460px;
+            min-height: 58px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 16px 22px;
+            border: 1px solid rgba(255,215,0,.55);
+            border-radius: 12px;
+            background: linear-gradient(135deg, #b99a36, #947622);
+            color: #10182b;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 800;
+            text-align: center;
+            cursor: not-allowed;
+            opacity: .78;
+            box-shadow: none;
+        }
+
+        .srp-app-launch__download:disabled {
+            color: #10182b;
+            -webkit-text-fill-color: #10182b;
+        }
+
+        .srp-app-launch__note {
+            color: #b6c4d8;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+            margin: 15px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .srp-app-launch__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .srp-app-launch__feature:last-child:nth-child(odd) {
+                grid-column: auto;
+            }
+
+            .srp-app-launch__feature {
+                padding: 18px;
+            }
+
+            .srp-app-launch__download {
+                font-size: 15px;
+            }
+        }
+
+        /* Утверждённый логотип ФутСферы: без изменения пропорций и фирменной графики. */
+        .srp-futsfera-hero { max-width: 1080px; margin: 0 auto; padding: 14px 12px 10px; }
+        .srp-futsfera-logo {
+            display: block;
+            width: 100%;
+            max-width: 1040px;
+            height: auto;
+            margin: 0 auto 22px;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+        .srp-futsfera-hero p {max-width: 790px; color: #d8e5f2;}
+        .srp-futsfera-visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        @media (max-width:600px) {
+            .srp-futsfera-hero {padding: 10px 0 0;}
+            .srp-futsfera-logo {border-radius: 8px; margin-bottom: 16px;}
+            .srp-futsfera-hero p {font-size: 15px; line-height: 1.65;}
+        }
+        /* Отдельная айдентика ФутСферы внутри страницы приложения */
+        .app-hero h1 { color: #19bfff; }
+        .srp-app-launch { border-color: rgba(25,191,255,.34); }
+        .srp-app-launch__eyebrow { color: #19bfff; }
+        .srp-app-launch__check {
+            border-color: rgba(25,191,255,.4);
+            color: #19bfff;
+            background: rgba(25,191,255,.075);
+            font-size: 14px;
+        }
+        .srp-app-launch__feature--pillar { min-height: 240px; }
+        .srp-app-launch__tag {
+            display: inline-block;
+            color: #9feaff;
+            font-size: 11px;
+            border: 1px solid rgba(25,191,255,.4);
+            border-radius: 6px;
+            padding: 3px 7px;
+            vertical-align: middle;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+        .srp-app-launch__roles {
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding: 24px 0;
+            margin-bottom: 12px;
+        }
+        .srp-app-launch__roles h3 { font-size: 21px; color:#fff; margin:0 0 14px; }
+        .srp-app-launch__roles p { color:#c5d6e8; font-size:14px; line-height:1.65; margin: 9px 0; }
+        .srp-app-launch__roles strong { color:#e6f5ff; }
+        .srp-app-launch__roles .srp-app-launch__roles-note { color:#92a8bf; margin-top:17px; }
+        .srp-app-launch__download { border-color:rgba(25,191,255,.5);background:linear-gradient(135deg,#19bfff,#1255a0);color:#071d3d; }
+        .srp-app-launch__download:disabled { color:#071d3d;-webkit-text-fill-color:#071d3d; }
+        @media (max-width: 470px) { .srp-app-launch__tag {margin:8px 0 0;display:table;} }
+        .app-hero { text-align: center; padding: 40px 20px; }
+        .app-hero h1 { font-size: 42px; color: var(--accent-color); margin-bottom: 10px; font-weight: 800; }
+        .app-hero h2 { font-size: 20px; color: #fff; margin-bottom: 20px; font-weight: 400; }
+        .app-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
+    </style>
+    <link rel="stylesheet" href="css/site-premium-theme.css?v=2.0">
+    <link rel="canonical" href="https://srp-vlg.ru/app.html">
+    <link rel="stylesheet" href="css/srp-mobile-fixes.css?v=1">
+</head>
+<body class="srp-premium-page">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип">
+                <h1>Спорт-Ревю<br>Поволжья</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" >Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html" class="active">Приложение</a>
+                <a href="contacts.html" class="nav-desktop-only" >Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only" >Отчёты АНО</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="app-hero srp-futsfera-hero">
+                <img class="srp-futsfera-logo" src="assets/futsfera-logo.jpg?v=20261109" width="1774" height="887" alt="ФутСфера — футбольная платформа. Утверждённый логотип с футбольным мячом и голубой орбитой." fetchpriority="high" decoding="async">
+                <h1 class="srp-futsfera-visually-hidden">ФутСфера — футбольная платформа</h1>
+                <p>Одно приложение — два направления: бесплатная «Летопись» для сохранения истории футбольных команд и «Спорт-Учёт» для управления футбольной школой. Общая регистрация, разные возможности в зависимости от роли пользователя.<br><br><strong style="color: #19bfff;">Платформа находится в разработке. Установка пока недоступна.</strong></p>
+            </div>
+
+            <!-- SRP_APP_LAUNCH_START -->
+            <section class="srp-app-launch" aria-labelledby="srp-launch-title">
+
+                <div class="srp-app-launch__eyebrow">
+                    ФутСфера · Готовимся к запуску
+                </div>
+
+                <h2 id="srp-launch-title" class="srp-app-launch__title">
+                    Одна платформа для футбольных команд и школ
+                </h2>
+
+                <p class="srp-app-launch__description">
+                    «Летопись» помогает сохранять футбольную историю и доступна гостям для просмотра.
+                    «Спорт-Учёт» предназначен для работы тренеров и руководителей.
+                    Ниже — направления платформы и функции, над которыми мы работаем.
+                </p>
+
+                <div class="srp-app-launch__grid">
+                    <article class="srp-app-launch__feature srp-app-launch__feature--pillar">
+                        <span class="srp-app-launch__check" aria-hidden="true">01</span>
+                        <div>
+                            <h3>Летопись <span class="srp-app-launch__tag">Бесплатно</span></h3>
+                            <p>История команд, матчи и турниры, соперники, статистика, рекорды, вехи, номинации и достижения. Родители и гости смогут смотреть опубликованные материалы. Добавление и редактирование — только с соответствующими правами.</p>
+                        </div>
+                    </article>
+                    <article class="srp-app-launch__feature srp-app-launch__feature--pillar">
+                        <span class="srp-app-launch__check" aria-hidden="true">02</span>
+                        <div>
+                            <h3>Спорт-Учёт <span class="srp-app-launch__tag">Базовый / PRO</span></h3>
+                            <p>Управление воспитанниками и группами, тренировками, посещаемостью, расписанием, абонементами, платежами, задолженностями и арендой спортивных объектов. Доступные инструменты зависят от роли и тарифа.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="srp-app-launch__roles">
+                    <h3>Кому подходит «ФутСфера»</h3>
+                    <p><strong>Родителям и гостям</strong> — просмотр открытой истории команд без административного доступа.</p>
+                    <p><strong>Тренерам</strong> — работа со своими командами и доступными инструментами учёта.</p>
+                    <p><strong>Руководителям школ</strong> — управление школой и её процессами в пределах предоставленных прав.</p>
+                    <p class="srp-app-launch__roles-note">Общая учётная запись для обоих направлений. Подробности запуска и доступности функций будут опубликованы отдельно.</p>
+                </div>
+
+                <div class="srp-app-launch__action">
+                    <button
+                        type="button"
+                        class="srp-app-launch__download"
+                        disabled
+                        aria-disabled="true">
+                        Установка пока недоступна
+                    </button>
+
+                    <p class="srp-app-launch__note">
+                        После выхода «ФутСферы» здесь появится подтверждённая ссылка на установку.
+                    </p>
+                </div>
+
+            </section>
+            <!-- SRP_APP_LAUNCH_END -->
+            <p class="legal-note" style="text-align: center; margin-top: 30px; font-size: 13px; color: #888;">
+                АНО «Спорт-Ревю Поволжья» является официальным правообладателем приложения.<br>
+                Проект создаётся для развития детского спорта и поддержки работы футбольных школ.<br>
+                Предоставляются все закрывающие документы для бухгалтерии.
+            </p>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>АНО «Спорт-Ревю Поволжья» | ИНН 3460088602</p></div>
+    
+        <!-- SRP_LEGAL_FOOTER_V1 -->
+        <nav aria-label="Юридические документы" style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px 24px;margin:12px auto 0;text-align:center">
+            <a href="privacy.html" style="color:#d8e2ee;font-size:12px;text-decoration:underline;text-underline-offset:3px">Политика обработки персональных данных</a>
+            <a href="consent.html" style="color:#d8e2ee;font-size:12px;text-decoration:underline;text-underline-offset:3px">Согласие на обработку персональных данных</a>
+        </nav>
+        <!-- END_SRP_LEGAL_FOOTER_V1 -->
+    </footer>
+
+    <script src="js/animations.js"></script>
+<a class="srp-mobile-cta" href="index.html#join">
+    Записать ребёнка на тренировку
+</a>
+<!-- SRP_INTERNAL_METRIKA_START -->
+<script>
+(function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){
+        (m[i].a=m[i].a||[]).push(arguments)
+    };
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){
+        if(document.scripts[j].src===r){return;}
+    }
+    k=e.createElement(t);
+    a=e.getElementsByTagName(t)[0];
+    k.async=1;
+    k.src=r;
+    a.parentNode.insertBefore(k,a);
+})(window,document,"script",
+   "https://mc.yandex.ru/metrika/tag.js","ym");
+
+ym(114132098,"init",{
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true
+});
+</script>
+<!-- SRP_INTERNAL_METRIKA_END -->
+</body>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <meta charset="UTF-8">
+    <title>Топ-10 игроков по матчам | Спорт-Ревю Поволжья</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/letopis-theme.css?v=20261109">
+    <link rel="stylesheet" href="css/site-premium-theme.css?v=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Десять игроков Спорт-Ревю Поволжья с наибольшим количеством матчей. Полная статистика команды появится в «ФутСфере» после выхода платформы.">
+    <link rel="canonical" href="https://srp-vlg.ru/stats.html">
+    <link rel="stylesheet" href="css/srp-mobile-fixes.css?v=1">
+
+    <style>
+        body.archive-page .srp-stats-app-promo {
+            margin: 32px 0 8px;
+            padding: clamp(22px, 3.5vw, 32px);
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: linear-gradient(130deg, #15243c, #10182b);
+            border: 1px solid rgba(215,180,90,.38);
+            border-radius: 16px;
+        }
+        body.archive-page .srp-stats-app-promo > div { flex: 1 1 340px; min-width: 0; }
+        body.archive-page .srp-stats-app-promo h3 {
+            color: #f4d27a;
+            font-size: clamp(19px, 2.3vw, 24px);
+            line-height: 1.3;
+            margin: 0 0 10px;
+        }
+        body.archive-page .srp-stats-app-promo p {
+            color: #d5dfed;
+            line-height: 1.65;
+            font-size: 14px;
+            margin: 0;
+        }
+        body.archive-page .srp-stats-app-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 11px 20px;
+            color: #10182b;
+            background: #e6c36e;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+        }
+        body.archive-page .srp-stats-app-link:hover,
+        body.archive-page .srp-stats-app-link:focus-visible {
+            background: #f6d887;
+        }
+        @media(max-width: 600px){
+            body.archive-page .srp-stats-app-link { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body class="archive-page srp-premium-page">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo"><h1>Спорт-Ревю<br>Поволжья</h1></div>
+            <nav class="nav">
+                <a href="index.html" >Главная</a>
+                <div class="dropdown">
+                    <a href="matches.html" class="dropbtn active">Летопись ▾</a>
+                    <div class="dropdown-content">
+                        <a href="matches.html">Матчи</a>
+                        <a href="tournaments.html">Турниры</a>
+                        <a href="stats.html">Статистика</a>
+                        <a href="nominations.html">Номинации</a>
+                        <a href="hall.html">Зал славы</a>
+                    </div>
+                </div>
+                <a href="app.html" >Приложение</a>
+                <a href="contacts.html" class="nav-desktop-only" >Тренеры и Адреса</a>
+                <a href="reports.html" class="nav-desktop-only" >Отчёты АНО</a>
+            </nav>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Топ-10 игроков по матчам</h2>
+            <p style="text-align:center; color:#b6c4d8; margin:0 auto 24px; max-width:720px; font-size:15px; line-height:1.65;">Игроки с наибольшим количеством сыгранных матчей за «Спорт-Ревю Поволжья». Нажмите на заголовок столбца, чтобы отсортировать эту десятку.</p>
+            
+            <div class="table-container">
+                <table id="stats-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" onclick="sortBy('name')">Игрок ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('games')">Игры ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('goals')">Голы ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('assists')">Передачи ↕</th>
+                            <th class="sortable" style="text-align:center; color:#fbbf24;" onclick="sortBy('yellow')">Жёлтые карточки ↕</th>
+                            <th class="sortable" style="text-align:center; color:#ef4444;" onclick="sortBy('red')">Красные карточки ↕</th>
+                            <th class="sortable" style="text-align:center;" onclick="sortBy('total')">Очки (Г+П) ↕</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-body"></tbody>
+                </table>
+            </div>
+            <aside class="srp-stats-app-promo" aria-label="Полная статистика в приложении">
+                <div>
+                    <h3>Полная статистика — в «ФутСфере»</h3>
+                    <p>На сайте показаны 10 лидеров по количеству матчей. После выхода приложения в нём будет доступна полная статистика игроков и история встреч.</p>
+                </div>
+                <a href="app.html" class="srp-stats-app-link">Узнать о приложении</a>
+            </aside>
+        </div>
+    </section>
+    <footer class="footer"><div class="container"><p>АНО «Спорт-Ревю Поволжья»</p></div>
+        <!-- SRP_LEGAL_FOOTER_V1 -->
+        <nav aria-label="Юридические документы" style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px 24px;margin:12px auto 0;text-align:center">
+            <a href="privacy.html" style="color:#d8e2ee;font-size:12px;text-decoration:underline;text-underline-offset:3px">Политика обработки персональных данных</a>
+            <a href="consent.html" style="color:#d8e2ee;font-size:12px;text-decoration:underline;text-underline-offset:3px">Согласие на обработку персональных данных</a>
+        </nav>
+        <!-- END_SRP_LEGAL_FOOTER_V1 -->
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/stats.js?v=20261109-top10"></script>
+<script src="js/animations.js"></script>\n<a class="srp-mobile-cta" href="index.html#join">
+    Записать ребёнка на тренировку
+</a>
+<!-- SRP_INTERNAL_METRIKA_START -->
+<script>
+(function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){
+        (m[i].a=m[i].a||[]).push(arguments)
+    };
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){
+        if(document.scripts[j].src===r){return;}
+    }
+    k=e.createElement(t);
+    a=e.getElementsByTagName(t)[0];
+    k.async=1;
+    k.src=r;
+    a.parentNode.insertBefore(k,a);
+})(window,document,"script",
+   "https://mc.yandex.ru/metrika/tag.js","ym");
+
+ym(114132098,"init",{
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true
+});
+</script>
+<!-- SRP_INTERNAL_METRIKA_END -->
+</body>
+</html>
