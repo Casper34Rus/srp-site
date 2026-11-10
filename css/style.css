@@ -1,4 +1,12 @@
-﻿:root {
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+}
+
+:root {
     --bg-color: #121212;
     --text-color: #ffffff;
     --accent-color: #0077FF; /* Клубный синий */
