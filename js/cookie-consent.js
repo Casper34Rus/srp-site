@@ -38,14 +38,47 @@
     });
   }
 
+  function clearMetrikaStorage() {
+    var cookieNames = document.cookie ? document.cookie.split(";").map(function (part) {
+      return part.trim().split("=")[0];
+    }) : [];
+
+    cookieNames.forEach(function (name) {
+      if (!/^_ym/i.test(name)) return;
+      document.cookie = name + "=; Max-Age=0; path=/; SameSite=Lax";
+      document.cookie = name + "=; Max-Age=0; path=/; domain=srp-vlg.ru; SameSite=Lax";
+      document.cookie = name + "=; Max-Age=0; path=/; domain=.srp-vlg.ru; SameSite=Lax";
+    });
+
+    try {
+      Object.keys(localStorage).forEach(function (key) {
+        if (/^_ym/i.test(key)) localStorage.removeItem(key);
+      });
+    } catch (error) {}
+  }
+
   function saveConsent(value) {
+    var wasAccepted = consentValue === "accepted";
     consentValue = value;
+
     try {
       localStorage.setItem(CONSENT_KEY, value);
     } catch (error) {}
-    if (value === "accepted") startAnalytics();
+
+    if (value === "accepted") {
+      startAnalytics();
+      hideBanner();
+      updateSettingsButton();
+      return;
+    }
+
     hideBanner();
     updateSettingsButton();
+
+    if (wasAccepted) {
+      clearMetrikaStorage();
+      window.location.reload();
+    }
   }
 
   function hideBanner() {
@@ -73,7 +106,7 @@
     if (!styleLink) {
       styleLink = document.createElement("link");
       styleLink.rel = "stylesheet";
-      styleLink.href = "/css/cookie-consent.css?v=1";
+      styleLink.href = "/css/cookie-consent.css?v=2";
       document.head.appendChild(styleLink);
     }
 
