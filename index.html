@@ -209,7 +209,10 @@
                                 } catch (error) {
                                     button.disabled = false;
                                     button.textContent = "Повторить загрузку";
+                                    container.textContent = "";
+                                    container.appendChild(button);
                                     container.style.display = "flex";
+                                    container.style.minHeight = "180px";
                                 }
                             };
                             script.onerror = function () {
