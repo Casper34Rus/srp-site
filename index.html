@@ -151,14 +151,22 @@
         text-align: left !important;
         transform: none;
       }
+      /* Place the small club name in the marked open blue area above the player. */
       body.srp-premium-page:not(.archive-page) .hero > .container > div:first-child {
-        font-size: 11px !important;
+        position: absolute;
+        top: clamp(-310px, -17vw, -165px);
+        left: clamp(300px, 34vw, 700px);
+        width: max-content;
+        max-width: 55vw;
+        font-size: 12px !important;
         letter-spacing: 1.4px !important;
-        margin-bottom: 10px !important;
+        line-height: 1.4;
+        white-space: nowrap;
+        margin-bottom: 0 !important;
       }
       body.srp-premium-page:not(.archive-page) .hero h1 {
         max-width: none !important;
-        margin: 0 0 11px !important;
+        margin: 30px 0 11px !important;
         font-size: clamp(26px, 2.3vw, 40px) !important;
         line-height: 1.12 !important;
         letter-spacing: -.5px !important;
@@ -196,6 +204,16 @@
         }
       }
       @media (max-width: 768px) {
+        body.srp-premium-page:not(.archive-page) .hero > .container > div:first-child {
+          position: static;
+          width: auto;
+          max-width: 100%;
+          white-space: normal;
+          margin-bottom: 10px !important;
+        }
+        body.srp-premium-page:not(.archive-page) .hero h1 {
+          margin-top: 0 !important;
+        }
         body.srp-premium-page:not(.archive-page) .hero {
           min-height: 0 !important;
           background-position: center, center top !important;
