@@ -144,7 +144,7 @@
         position: absolute;
         top: 49%;
         left: clamp(24px, 4vw, 80px);
-        width: min(40%, 640px);
+        width: min(43%, 650px);
         max-width: none;
         margin: 0;
         padding: 0;
@@ -154,20 +154,22 @@
       /* Place the small club name in the marked open blue area above the player. */
       body.srp-premium-page:not(.archive-page) .hero > .container > div:first-child {
         position: absolute;
-        top: clamp(-310px, -17vw, -165px);
+        top: clamp(-315px, -17vw, -180px);
         left: clamp(300px, 34vw, 700px);
         width: max-content;
         max-width: 55vw;
-        font-size: 12px !important;
-        letter-spacing: 1.4px !important;
-        line-height: 1.4;
+        font-size: clamp(16px, 1.25vw, 20px) !important;
+        font-weight: 800 !important;
+        letter-spacing: 1.2px !important;
+        line-height: 1.35;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, .55);
         white-space: nowrap;
         margin-bottom: 0 !important;
       }
       body.srp-premium-page:not(.archive-page) .hero h1 {
         max-width: none !important;
-        margin: 30px 0 11px !important;
-        font-size: clamp(26px, 2.3vw, 40px) !important;
+        margin: 0 0 16px !important;
+        font-size: clamp(34px, 2.65vw, 45px) !important;
         line-height: 1.12 !important;
         letter-spacing: -.5px !important;
         text-align: left;
@@ -175,8 +177,8 @@
       body.srp-premium-page:not(.archive-page) .hero-info {
         margin: 0 !important;
         max-width: 580px !important;
-        font-size: clamp(13px, 1.02vw, 16px) !important;
-        line-height: 1.5 !important;
+        font-size: clamp(16px, 1.13vw, 18px) !important;
+        line-height: 1.55 !important;
         text-align: left;
       }
       body.srp-premium-page:not(.archive-page) .hero-buttons {
@@ -184,23 +186,24 @@
         flex-wrap: nowrap !important;
         flex-direction: column;
         align-items: flex-start;
-        gap: 9px !important;
-        margin-top: 17px !important;
+        gap: 11px !important;
+        margin-top: 21px !important;
       }
       body.srp-premium-page:not(.archive-page) .hero-buttons .btn {
         box-sizing: border-box;
-        width: min(100%, 380px);
-        padding: 12px 16px !important;
-        font-size: clamp(12px, .9vw, 14px) !important;
+        width: min(100%, 420px);
+        min-height: 46px;
+        padding: 13px 18px !important;
+        font-size: clamp(15px, 1.04vw, 17px) !important;
         text-align: center;
       }
       @media (max-width: 1100px) and (min-width: 769px) {
         body.srp-premium-page:not(.archive-page) .hero > .container {
-          top: 45%;
-          width: 44%;
+          top: 48%;
+          width: 45%;
         }
         body.srp-premium-page:not(.archive-page) .hero h1 {
-          font-size: clamp(24px, 2.7vw, 30px) !important;
+          font-size: clamp(29px, 3vw, 36px) !important;
         }
       }
       @media (max-width: 768px) {
@@ -209,7 +212,8 @@
           width: auto;
           max-width: 100%;
           white-space: normal;
-          margin-bottom: 10px !important;
+          margin-bottom: 12px !important;
+          font-size: 15px !important;
         }
         body.srp-premium-page:not(.archive-page) .hero h1 {
           margin-top: 0 !important;
@@ -239,7 +243,7 @@
         }
         body.srp-premium-page:not(.archive-page) .hero-info {
           margin: 0 auto !important;
-          font-size: 14px !important;
+          font-size: 16px !important;
           text-align: center;
         }
         body.srp-premium-page:not(.archive-page) .hero-buttons {
