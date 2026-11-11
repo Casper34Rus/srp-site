@@ -128,17 +128,23 @@
         .srp-news-card { min-height: 300px; padding: 22px 18px; }
         .srp-news-card__logo { height: 110px; }
       }
-      /* Home football banner: readable copy without hiding the players. */
+      /* Preserve the entire 16:9 banner, including the crest and players. */
+      body.srp-premium-page:not(.archive-page) .hero {
+        min-height: clamp(600px, 56.25vw, 920px) !important;
+        box-sizing: border-box;
+      }
       body.srp-premium-page:not(.archive-page) .hero::before {
-        background: linear-gradient(90deg, rgba(5,13,28,.26), rgba(5,13,28,.35) 48%, rgba(5,13,28,.18));
+        background: linear-gradient(90deg, rgba(5,13,28,.14), rgba(5,13,28,.30) 48%, rgba(5,13,28,.12));
       }
       @media (max-width: 768px) {
         body.srp-premium-page:not(.archive-page) .hero {
-          background-position: center, 60% center, center !important;
-          background-size: cover !important;
+          min-height: auto !important;
+          background-position: center, center top !important;
+          background-size: cover, 100% auto !important;
+          padding: calc(56.25vw + 35px) 0 70px !important;
         }
         body.srp-premium-page:not(.archive-page) .hero::before {
-          background: rgba(5,13,28,.49);
+          background: linear-gradient(to bottom, transparent 0, transparent 30%, rgba(5,13,28,.35) 55%, rgba(5,13,28,.65) 100%);
         }
       }
       /* Keep the coach feature on phones only, independent of CSS cache. */
@@ -182,7 +188,7 @@
         </div>
     </header>
 
-    <section class="hero" style="background: linear-gradient(90deg, rgba(4,14,34,.37), rgba(4,14,34,.53)), url('assets/hero-football-2026.jpg') center/cover no-repeat, url('assets/hero-bg.jpg') center/cover no-repeat; padding: 120px 0; border-bottom: 4px solid var(--accent-color);">
+    <section class="hero" style="background: linear-gradient(90deg, rgba(4,14,34,.22), rgba(4,14,34,.32)), url('assets/hero-football-2026.jpg') center/contain no-repeat, #061a38; padding: 120px 0; border-bottom: 4px solid var(--accent-color);">
         <div class="container" style="text-align: center;">
             <div style="color: #0077FF; font-weight: 800; letter-spacing: 2px; margin-bottom: 15px;">АНО «СПОРТ-РЕВЮ ПОВОЛЖЬЯ»</div>
             <h1 style="font-size: 46px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); margin-bottom: 15px; color: #fff; line-height: 1.2;">ФУТБОЛЬНЫЕ ТРЕНИРОВКИ<br>ДЛЯ ДЕТЕЙ От 6 лет</h1>
