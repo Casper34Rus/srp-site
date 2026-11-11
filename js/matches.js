@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="match-main-info">
                     <div class="team-block">
                         <!-- Наш логотип из папки assets -->
-                        <img src="assets/logo.jpg" alt="Спорт-Ревю" class="team-logo-img" onerror="this.style.display='none'">
+                        <img src="assets/logo-main.png" alt="Спорт-Ревю" class="team-logo-img" onerror="this.style.display='none'">
                         <div class="team-name">Спорт-Ревю Поволжья</div>
                     </div>
                     <div class="score-block">
