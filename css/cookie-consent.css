@@ -1,122 +1,59 @@
+/* Compact, accessible, optional analytics consent. */
 .srp-cookie-banner[hidden] { display: none !important; }
 .srp-cookie-banner {
   position: fixed;
   z-index: 10000;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  max-width: 980px;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 22px 24px;
+  padding: 12px 14px;
   color: #f3f6fb;
-  background: rgba(10, 25, 48, .98);
-  border: 1px solid rgba(25, 191, 255, .42);
-  border-radius: 16px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, .38);
+  background: rgba(10, 25, 48, .97);
+  border: 1px solid rgba(139, 220, 255, .35);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.3);
   font-family: Montserrat, Arial, sans-serif;
 }
-.srp-cookie-banner__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-}
-.srp-cookie-banner__copy { min-width: 0; }
-.srp-cookie-banner__eyebrow {
-  margin: 0 0 7px;
-  color: #69cfff;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-}
-.srp-cookie-banner h2 {
-  margin: 0 0 8px;
-  color: #fff;
-  font-size: 18px;
-  line-height: 1.35;
-}
-.srp-cookie-banner__copy > p:not(.srp-cookie-banner__eyebrow) {
-  margin: 0;
-  color: #d1dceb;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.srp-cookie-banner__link {
-  display: inline-block;
-  margin-top: 9px;
-  color: #8bdcff;
-  font-size: 12px;
-  text-underline-offset: 3px;
-}
-.srp-cookie-banner__actions {
-  display: flex;
-  flex: 0 0 205px;
-  flex-direction: column;
-  gap: 9px;
-}
+.srp-cookie-banner__content { display: flex; align-items: center; gap: 14px; }
+.srp-cookie-banner__copy { min-width: 0; flex: 1; }
+.srp-cookie-banner__copy p { margin: 0; color: #e1e9f3; font-size: 12px; line-height: 1.5; }
+.srp-cookie-banner__link { color: #8bdcff; text-decoration: underline; text-underline-offset: 2px; }
+.srp-cookie-banner__actions { display: flex; gap: 7px; flex: 0 0 auto; }
 .srp-cookie-banner__button {
-  min-height: 43px;
-  padding: 10px 14px;
+  padding: 8px 11px;
+  min-height: 36px;
   border: 1px solid transparent;
-  border-radius: 9px;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 800;
+  border-radius: 8px;
+  font: 700 11px Montserrat, Arial, sans-serif;
   cursor: pointer;
-  transition: background .18s ease, border-color .18s ease;
 }
 .srp-cookie-banner__button:focus-visible,
-.srp-cookie-settings:focus-visible {
-  outline: 3px solid #7bd7ff;
-  outline-offset: 3px;
-}
-.srp-cookie-banner__button--accept {
-  color: #071d3d;
-  background: #8bdcff;
-}
+.srp-cookie-settings:focus-visible { outline: 3px solid #7bd7ff; outline-offset: 3px; }
+.srp-cookie-banner__button--accept { color: #071d3d; background: #8bdcff; }
 .srp-cookie-banner__button--accept:hover { background: #b1eaff; }
-.srp-cookie-banner__button--reject {
-  color: #f3f6fb;
-  background: transparent;
-  border-color: rgba(216, 229, 242, .45);
-}
+.srp-cookie-banner__button--reject { color: #f3f6fb; background: transparent; border-color: rgba(216,229,242,.45); }
 .srp-cookie-banner__button--reject:hover { background: rgba(255,255,255,.09); }
 .srp-cookie-settings {
   position: fixed;
   z-index: 9998;
-  left: 14px;
-  bottom: 14px;
-  min-height: 35px;
-  padding: 8px 12px;
+  left: 10px;
+  bottom: 10px;
+  min-height: 30px;
+  padding: 6px 9px;
   color: #dce8f5;
   background: #10233e;
-  border: 1px solid rgba(139, 220, 255, .5);
-  border-radius: 8px;
-  font: 600 11px Montserrat, Arial, sans-serif;
+  border: 1px solid rgba(139,220,255,.35);
+  border-radius: 7px;
+  font: 600 10px Montserrat, Arial, sans-serif;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,.2);
 }
 .srp-cookie-banner:not([hidden]) ~ .srp-cookie-settings { display: none; }
 @media (max-width: 680px) {
-  .srp-cookie-banner {
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    padding: 18px 16px;
-    border-radius: 13px;
-    max-height: calc(100dvh - 20px);
-    overflow-y: auto;
-  }
+  .srp-cookie-banner { right: 9px; left: 9px; bottom: 9px; padding: 11px; }
   .srp-cookie-banner__content { display: block; }
-  .srp-cookie-banner h2 { font-size: 16px; }
-  .srp-cookie-banner__copy > p:not(.srp-cookie-banner__eyebrow) { font-size: 12px; }
-  .srp-cookie-banner__actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 15px;
-    gap: 8px;
-  }
-  .srp-cookie-banner__button { min-height: 45px; padding: 9px 7px; font-size: 11px; }
-  .srp-cookie-settings { left: 10px; bottom: 10px; }
+  .srp-cookie-banner__copy p { font-size: 11px; }
+  .srp-cookie-banner__actions { margin-top: 10px; }
+  .srp-cookie-banner__button { min-height: 36px; flex: 1; }
 }
