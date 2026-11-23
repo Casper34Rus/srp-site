@@ -8,3 +8,40 @@
 *.sqlite-shm
 *.bak
 *.backup
+
+# Private exports, credentials and local environments
+*.db-wal
+*.db-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.dump
+*.sql.gz
+*.tar
+*.tar.gz
+*.dpapi
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.env
+.env.*
+!.env.example
+*.apk
+*.aab
+
+# Temporary scripts, caches and generated reports
+**/build/
+**/.dart_tool/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+*.tmp
+*.temp
+*.log
+/_sport_sync_pg_disposable_*/
+/futsfera_pg_test_*/
+
+# Unpublished source archive: extracted images live in assets/hall/
+/srp_hall_backgrounds.zip
